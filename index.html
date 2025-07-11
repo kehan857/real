@@ -3730,9 +3730,12 @@
 
                         <!-- 按明细查询表格 -->
                         <div class="table-scroll-container" id="detail-table-container" style="display: none;">
-                            <table class="data-table" style="min-width: 2200px; width: 100%;">
+                            <table class="data-table" style="min-width: 2300px; width: 100%;">
                                 <thead>
                                     <tr>
+                                        <th style="width: 50px;">
+                                            <input type="checkbox" id="select-all-detail" onchange="toggleSelectAllDetail()" style="cursor: pointer;">
+                                        </th>
                                         <th style="width: 60px;">序号</th>
                                         <th style="width: 100px;">执行状态</th>
                                         <th style="width: 120px;">通期标识</th>
@@ -3747,6 +3750,9 @@
                                 </thead>
                                 <tbody>
                                     <tr>
+                                        <td onclick="event.stopPropagation();">
+                                            <input type="checkbox" class="detail-row-checkbox" value="RE25000012" onchange="updateDetailSelection()" style="cursor: pointer;">
+                                        </td>
                                         <td>1</td>
                                         <td><span class="status-badge status-pending">待执行</span></td>
                                         <td><span class="status-badge status-overdue">逾期8天</span></td>
@@ -3761,6 +3767,9 @@
                                         </td>
                                     </tr>
                                     <tr>
+                                        <td onclick="event.stopPropagation();">
+                                            <input type="checkbox" class="detail-row-checkbox" value="RE25000011" onchange="updateDetailSelection()" style="cursor: pointer;">
+                                        </td>
                                         <td>2</td>
                                         <td><span class="status-badge status-pending">待执行</span></td>
                                         <td><span class="status-badge status-overdue">逾期8天</span></td>
@@ -3775,6 +3784,9 @@
                                         </td>
                                     </tr>
                                     <tr>
+                                        <td onclick="event.stopPropagation();">
+                                            <input type="checkbox" class="detail-row-checkbox" value="RE25000010" onchange="updateDetailSelection()" style="cursor: pointer;">
+                                        </td>
                                         <td>3</td>
                                         <td><span class="status-badge status-processing">执行中</span></td>
                                         <td><span class="status-badge status-overdue">逾期10天</span></td>
@@ -3789,6 +3801,9 @@
                                         </td>
                                     </tr>
                                     <tr>
+                                        <td onclick="event.stopPropagation();">
+                                            <input type="checkbox" class="detail-row-checkbox" value="RE25000009" onchange="updateDetailSelection()" style="cursor: pointer;">
+                                        </td>
                                         <td>4</td>
                                         <td><span class="status-badge status-pending">待执行</span></td>
                                         <td><span class="status-badge status-overdue">逾期49天</span></td>
@@ -3803,6 +3818,9 @@
                                         </td>
                                     </tr>
                                     <tr>
+                                        <td onclick="event.stopPropagation();">
+                                            <input type="checkbox" class="detail-row-checkbox" value="RE25000008" onchange="updateDetailSelection()" style="cursor: pointer;">
+                                        </td>
                                         <td>5</td>
                                         <td><span class="status-badge status-processing">执行中</span></td>
                                         <td><span class="status-badge status-overdue">逾期40天</span></td>
@@ -3817,6 +3835,9 @@
                                         </td>
                                     </tr>
                                     <tr>
+                                        <td onclick="event.stopPropagation();">
+                                            <input type="checkbox" class="detail-row-checkbox" value="RE25000007" onchange="updateDetailSelection()" style="cursor: pointer;">
+                                        </td>
                                         <td>6</td>
                                         <td><span class="status-badge status-processing">执行中</span></td>
                                         <td><span class="status-badge status-overdue">逾期42天</span></td>
@@ -3831,6 +3852,9 @@
                                         </td>
                                     </tr>
                                     <tr>
+                                        <td onclick="event.stopPropagation();">
+                                            <input type="checkbox" class="detail-row-checkbox" value="RE25000006" onchange="updateDetailSelection()" style="cursor: pointer;">
+                                        </td>
                                         <td>7</td>
                                         <td><span class="status-badge status-processing">执行中</span></td>
                                         <td><span class="status-badge status-overdue">逾期49天</span></td>
@@ -3845,6 +3869,9 @@
                                         </td>
                                     </tr>
                                     <tr>
+                                        <td onclick="event.stopPropagation();">
+                                            <input type="checkbox" class="detail-row-checkbox" value="RE25000005" onchange="updateDetailSelection()" style="cursor: pointer;">
+                                        </td>
                                         <td>8</td>
                                         <td><span class="status-badge status-processing">执行中</span></td>
                                         <td><span class="status-badge status-overdue">逾期56天</span></td>
@@ -3859,6 +3886,9 @@
                                         </td>
                                     </tr>
                                     <tr>
+                                        <td onclick="event.stopPropagation();">
+                                            <input type="checkbox" class="detail-row-checkbox" value="RE25000004" onchange="updateDetailSelection()" style="cursor: pointer;">
+                                        </td>
                                         <td>9</td>
                                         <td><span class="status-badge status-processing">执行中</span></td>
                                         <td><span class="status-badge status-overdue">逾期51天</span></td>
@@ -3873,6 +3903,9 @@
                                         </td>
                                     </tr>
                                     <tr>
+                                        <td onclick="event.stopPropagation();">
+                                            <input type="checkbox" class="detail-row-checkbox" value="RE25000003" onchange="updateDetailSelection()" style="cursor: pointer;">
+                                        </td>
                                         <td>10</td>
                                         <td><span class="status-badge status-processing">执行中</span></td>
                                         <td><span class="status-badge status-overdue">逾期40天</span></td>
@@ -3887,6 +3920,9 @@
                                         </td>
                                     </tr>
                                     <tr>
+                                        <td onclick="event.stopPropagation();">
+                                            <input type="checkbox" class="detail-row-checkbox" value="RE25000002" onchange="updateDetailSelection()" style="cursor: pointer;">
+                                        </td>
                                         <td>11</td>
                                         <td><span class="status-badge status-processing">执行中</span></td>
                                         <td><span class="status-badge status-overdue">逾期56天</span></td>
@@ -7907,6 +7943,40 @@
                 orderViewBtn.classList.remove('active');
                 detailViewBtn.classList.add('active');
             }
+        }
+
+        // 全选/取消全选明细列表
+        function toggleSelectAllDetail() {
+            const selectAllCheckbox = document.getElementById('select-all-detail');
+            const rowCheckboxes = document.querySelectorAll('.detail-row-checkbox');
+            
+            rowCheckboxes.forEach(checkbox => {
+                checkbox.checked = selectAllCheckbox.checked;
+            });
+            
+            updateDetailSelection();
+        }
+
+        // 更新明细选择状态
+        function updateDetailSelection() {
+            const selectAllCheckbox = document.getElementById('select-all-detail');
+            const rowCheckboxes = document.querySelectorAll('.detail-row-checkbox');
+            const checkedBoxes = document.querySelectorAll('.detail-row-checkbox:checked');
+            
+            // 更新全选框状态
+            if (checkedBoxes.length === 0) {
+                selectAllCheckbox.checked = false;
+                selectAllCheckbox.indeterminate = false;
+            } else if (checkedBoxes.length === rowCheckboxes.length) {
+                selectAllCheckbox.checked = true;
+                selectAllCheckbox.indeterminate = false;
+            } else {
+                selectAllCheckbox.checked = false;
+                selectAllCheckbox.indeterminate = true;
+            }
+            
+            // 可以在这里添加选中项的处理逻辑
+            console.log('已选择的订单:', Array.from(checkedBoxes).map(cb => cb.value));
         }
 
         // 销售订单详情页标签页切换功能
