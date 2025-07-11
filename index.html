@@ -3614,7 +3614,7 @@
                             <button class="btn btn-secondary">重置</button>
                         </div>
                         <div class="filter-row">
-                            <button class="btn btn-secondary">生成生产计划</button>
+                            <button class="btn btn-secondary" onclick="showProductionPlanModal()">生成生产计划</button>
                             <button class="btn btn-secondary">生成发货任务</button>
                             <button class="btn btn-secondary">催货</button>
                             <button class="btn btn-secondary">加急</button>
@@ -6704,6 +6704,138 @@
                 <div class="modal-footer">
                     <button class="btn btn-secondary" onclick="closeModal('all-drawings-modal')">关闭</button>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 生成生产计划模态框 -->
+    <div id="production-plan-modal" class="modal">
+        <div class="modal-content" style="width: 95%; max-width: 1400px;">
+            <div class="modal-header">
+                <div class="modal-title">生成生产计划</div>
+                <button class="close-btn" onclick="closeModal('production-plan-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="production-plan-form">
+                    <!-- 基本信息区域 -->
+                    <div class="detail-section">
+                        <div class="form-grid" style="grid-template-columns: 1fr 1fr 1fr 1fr;">
+                            <div class="form-field">
+                                <label>销售订单编码</label>
+                                <input type="text" class="filter-input" value="XS-2507003" readonly style="background-color: #f5f5f5;">
+                            </div>
+                            <div class="form-field">
+                                <label>部门</label>
+                                <select class="filter-input">
+                                    <option>销售部</option>
+                                    <option>生产部</option>
+                                    <option>技术部</option>
+                                </select>
+                            </div>
+                            <div class="form-field">
+                                <label>客户名称</label>
+                                <input type="text" class="filter-input" value="科倍恩-xujianTest" readonly style="background-color: #f5f5f5;">
+                            </div>
+                            <div class="form-field">
+                                <label>计划员 <span style="color: red;">*</span></label>
+                                <input type="text" class="filter-input" value="李志明/157371112" readonly style="background-color: #f5f5f5;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 备注信息区域 -->
+                    <div class="detail-section">
+                        <div class="detail-title">备注信息</div>
+                        <div class="form-field">
+                            <textarea class="filter-input" placeholder="请输入" style="min-height: 60px; resize: vertical;"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- 生产计划明细区域 -->
+                    <div class="detail-section">
+                        <div class="detail-title">生产计划明细</div>
+                        <div style="overflow-x: auto;">
+                            <table class="data-table" style="min-width: 1200px;">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 60px;">序号</th>
+                                        <th style="width: 200px;">产品信息</th>
+                                        <th style="width: 120px;">数量/单位</th>
+                                        <th style="width: 120px;">销售要货日期</th>
+                                        <th style="width: 140px;">计划需求日期 <span style="color: red;">*</span></th>
+                                        <th style="width: 200px;">计划起止日期</th>
+                                        <th style="width: 100px;">订单附件</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>WL-25030002/窗式机壳/win6KW</td>
+                                        <td>10台</td>
+                                        <td>2025-07-10</td>
+                                        <td>
+                                            <input type="date" class="filter-input" style="width: 100%; font-size: 12px;" placeholder="请选择">
+                                        </td>
+                                        <td>
+                                            <div style="display: flex; gap: 5px; align-items: center;">
+                                                <input type="date" class="filter-input" style="width: 90px; font-size: 12px;" placeholder="计划开始日期">
+                                                <span style="font-size: 12px;">至</span>
+                                                <input type="date" class="filter-input" style="width: 90px; font-size: 12px;" placeholder="计划结束日期">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-secondary" style="padding: 4px 8px; font-size: 12px;">选择文件</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>WL-24010062/电控柜壳体/420*570*360</td>
+                                        <td>20台</td>
+                                        <td>2025-07-15</td>
+                                        <td>
+                                            <input type="date" class="filter-input" style="width: 100%; font-size: 12px;" placeholder="请选择">
+                                        </td>
+                                        <td>
+                                            <div style="display: flex; gap: 5px; align-items: center;">
+                                                <input type="date" class="filter-input" style="width: 90px; font-size: 12px;" placeholder="计划开始日期">
+                                                <span style="font-size: 12px;">至</span>
+                                                <input type="date" class="filter-input" style="width: 90px; font-size: 12px;" placeholder="计划结束日期">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-secondary" style="padding: 4px 8px; font-size: 12px;">选择文件</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>WL-24010061/转换开关/LW5D-16D0414/2</td>
+                                        <td>10个</td>
+                                        <td>2025-07-16</td>
+                                        <td>
+                                            <input type="date" class="filter-input" style="width: 100%; font-size: 12px;" placeholder="请选择">
+                                        </td>
+                                        <td>
+                                            <div style="display: flex; gap: 5px; align-items: center;">
+                                                <input type="date" class="filter-input" style="width: 90px; font-size: 12px;" placeholder="计划开始日期">
+                                                <span style="font-size: 12px;">至</span>
+                                                <input type="date" class="filter-input" style="width: 90px; font-size: 12px;" placeholder="计划结束日期">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-secondary" style="padding: 4px 8px; font-size: 12px;">选择文件</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- 底部按钮 -->
+                    <div style="text-align: center; margin-top: 30px;">
+                        <button type="button" class="btn btn-secondary" onclick="closeModal('production-plan-modal')">取消</button>
+                        <button type="button" class="btn btn-primary" style="margin-left: 10px;" onclick="confirmProductionPlan()">确定</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -10967,6 +11099,62 @@
             if (detailsElement) {
                 detailsElement.style.display = detailsElement.style.display === 'none' ? 'block' : 'none';
             }
+        }
+
+        // 生成生产计划相关函数
+        function showProductionPlanModal() {
+            document.getElementById('production-plan-modal').style.display = 'block';
+        }
+
+        function confirmProductionPlan() {
+            // 检查必填字段
+            const planDates = document.querySelectorAll('#production-plan-modal input[type="date"]');
+            let hasEmptyRequired = false;
+            
+            planDates.forEach(input => {
+                if (input.closest('td').querySelector('span[style*="color: red"]') && !input.value) {
+                    hasEmptyRequired = true;
+                    input.style.borderColor = '#ff4d4f';
+                }
+            });
+            
+            if (hasEmptyRequired) {
+                alert('请填写所有必填的计划需求日期！');
+                return;
+            }
+            
+            // 收集表单数据
+            const formData = {
+                orderCode: document.querySelector('#production-plan-modal input[value="XS-2507003"]').value,
+                department: document.querySelector('#production-plan-modal select').value,
+                customer: document.querySelector('#production-plan-modal input[value="科倍恩-xujianTest"]').value,
+                planner: document.querySelector('#production-plan-modal input[value="李志明/157371112"]').value,
+                notes: document.querySelector('#production-plan-modal textarea').value,
+                details: []
+            };
+            
+            // 收集明细数据
+            const rows = document.querySelectorAll('#production-plan-modal tbody tr');
+            rows.forEach((row, index) => {
+                const cells = row.querySelectorAll('td');
+                const planDate = row.querySelector('input[type="date"]').value;
+                const startDate = row.querySelectorAll('input[type="date"]')[1].value;
+                const endDate = row.querySelectorAll('input[type="date"]')[2].value;
+                
+                formData.details.push({
+                    序号: cells[0].textContent,
+                    产品信息: cells[1].textContent,
+                    数量单位: cells[2].textContent,
+                    销售要货日期: cells[3].textContent,
+                    计划需求日期: planDate,
+                    计划开始日期: startDate,
+                    计划结束日期: endDate
+                });
+            });
+            
+            console.log('生产计划数据：', formData);
+            alert('生产计划已成功生成！');
+            closeModal('production-plan-modal');
         }
 
     </script>
