@@ -1110,6 +1110,27 @@
             color: #cf1322;
         }
         
+        /* 文件上传状态样式 */
+        .status-pending {
+            color: #faad14;
+            font-weight: 500;
+        }
+        
+        .status-uploading {
+            color: #1890ff;
+            font-weight: 500;
+        }
+        
+        .status-success {
+            color: #52c41a;
+            font-weight: 500;
+        }
+        
+        .status-error {
+            color: #ff4d4f;
+            font-weight: 500;
+        }
+        
         /* 详情模态框 */
         .modal {
             display: none;
@@ -3594,7 +3615,6 @@
                         </div>
                         <div class="filter-row">
                             <button class="btn btn-secondary">生成生产计划</button>
-                            <button class="btn btn-secondary">生成生产订单</button>
                             <button class="btn btn-secondary">生成发货任务</button>
                             <button class="btn btn-secondary">催货</button>
                             <button class="btn btn-secondary">加急</button>
@@ -5467,6 +5487,59 @@
                         </tbody>
                     </table>
                 </div>
+                
+                <div class="detail-section">
+                    <div class="detail-title">
+                        标包附件
+                        <button type="button" class="btn btn-primary" style="float: right;" onclick="uploadBidAttachment()">上传附件</button>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>文件名</th>
+                                <th>文件类型</th>
+                                <th>文件大小</th>
+                                <th>上传时间</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bid-attachment-list">
+                            <tr>
+                                <td>标包技术文档.pdf</td>
+                                <td>PDF</td>
+                                <td>2.5MB</td>
+                                <td>2025-06-15 10:30:00</td>
+                                <td>
+                                    <a href="#" class="action-link" onclick="downloadBidAttachment('标包技术文档.pdf')">下载</a>
+                                    <a href="#" class="action-link" onclick="previewBidAttachment('标包技术文档.pdf')">预览</a>
+                                    <a href="#" class="action-link danger" onclick="deleteBidAttachment('标包技术文档.pdf')">删除</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>电气图纸.dwg</td>
+                                <td>CAD</td>
+                                <td>5.2MB</td>
+                                <td>2025-06-16 14:20:00</td>
+                                <td>
+                                    <a href="#" class="action-link" onclick="downloadBidAttachment('电气图纸.dwg')">下载</a>
+                                    <a href="#" class="action-link" onclick="previewBidAttachment('电气图纸.dwg')">预览</a>
+                                    <a href="#" class="action-link danger" onclick="deleteBidAttachment('电气图纸.dwg')">删除</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>合同扫描件.pdf</td>
+                                <td>PDF</td>
+                                <td>1.8MB</td>
+                                <td>2025-06-17 09:15:00</td>
+                                <td>
+                                    <a href="#" class="action-link" onclick="downloadBidAttachment('合同扫描件.pdf')">下载</a>
+                                    <a href="#" class="action-link" onclick="previewBidAttachment('合同扫描件.pdf')">预览</a>
+                                    <a href="#" class="action-link danger" onclick="deleteBidAttachment('合同扫描件.pdf')">删除</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
@@ -5736,8 +5809,6 @@
                         <span style="background: red; color: white; padding: 4px 12px; border-radius: 4px; font-size: 14px;">逾期</span>
                         <span style="font-size: 24px; font-weight: 600;">RE25000004</span>
                         <div style="width: 60px; height: 60px; background: #000; color: white; display: flex; align-items: center; justify-content: center; font-size: 12px;">二维码</div>
-                        <button class="btn btn-secondary" style="background: #e9ecef; color: #6c757d;">未开发票</button>
-                        <button class="btn btn-secondary" style="background: #e9ecef; color: #6c757d;">未回款</button>
                         <button class="btn btn-secondary" style="background: #e9ecef; color: #6c757d;">未发货</button>
                 </div>
             </div>
@@ -5823,8 +5894,6 @@
                          <button class="order-detail-tab" onclick="switchOrderDetailTab('quality')" style="padding: 12px 24px; border: none; background: none; color: #6c757d;">质量检验</button>
                          <button class="order-detail-tab" onclick="switchOrderDetailTab('warehouse')" style="padding: 12px 24px; border: none; background: none; color: #6c757d;">入库情况</button>
                          <button class="order-detail-tab" onclick="switchOrderDetailTab('delivery')" style="padding: 12px 24px; border: none; background: none; color: #6c757d;">发货明细</button>
-                         <button class="order-detail-tab" onclick="switchOrderDetailTab('invoice')" style="padding: 12px 24px; border: none; background: none; color: #6c757d;">开票信息</button>
-                         <button class="order-detail-tab" onclick="switchOrderDetailTab('payment')" style="padding: 12px 24px; border: none; background: none; color: #6c757d;">回款信息</button>
                         </div>
                     </div>
 
@@ -5967,30 +6036,6 @@
                                          <div style="display: flex; flex-direction: column; align-items: center; position: relative;">
                                              <div style="width: 80px; height: 50px; background: #9ca3af; color: white; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; border-radius: 4px;">
                                                  发货
-                                             </div>
-                                         </div>
-                                         
-                                         <!-- 连接线 -->
-                                         <div style="flex: 1; height: 2px; background: #3b82f6; margin: 0 10px; position: relative;">
-                                             <div style="position: absolute; right: -8px; top: -4px; width: 0; height: 0; border-left: 8px solid #3b82f6; border-top: 4px solid transparent; border-bottom: 4px solid transparent;"></div>
-                                         </div>
-                                         
-                                         <!-- 开票 -->
-                                         <div style="display: flex; flex-direction: column; align-items: center; position: relative;">
-                                             <div style="width: 80px; height: 50px; background: #9ca3af; color: white; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; border-radius: 4px;">
-                                                 开票
-                                             </div>
-                                         </div>
-                                         
-                                         <!-- 连接线 -->
-                                         <div style="flex: 1; height: 2px; background: #3b82f6; margin: 0 10px; position: relative;">
-                                             <div style="position: absolute; right: -8px; top: -4px; width: 0; height: 0; border-left: 8px solid #3b82f6; border-top: 4px solid transparent; border-bottom: 4px solid transparent;"></div>
-                                         </div>
-                                         
-                                         <!-- 回款 -->
-                                         <div style="display: flex; flex-direction: column; align-items: center; position: relative;">
-                                             <div style="width: 80px; height: 50px; background: #9ca3af; color: white; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; border-radius: 4px;">
-                                                 回款
                                              </div>
                                          </div>
                                      </div>
@@ -6201,11 +6246,6 @@
             <div class="modal-body">
                 <form id="survey-form">
                     <div class="form-field">
-                        <label>调查表编号 <span class="required">*</span></label>
-                        <input type="text" class="filter-input" name="surveyNo" required placeholder="请输入调查表编号">
-                    </div>
-                    
-                    <div class="form-field">
                         <label>关联合同编号 <span class="required">*</span></label>
                         <select class="filter-input" name="contractNo" required>
                             <option value="">请选择合同编号</option>
@@ -6322,6 +6362,57 @@
         </div>
     </div>
 
+    <!-- 标包附件上传模态框 -->
+    <div id="bid-attachment-upload-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">上传标包附件</div>
+                <button class="close-btn" onclick="closeModal('bid-attachment-upload-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="detail-section">
+                    <div class="detail-title">选择文件</div>
+                    <div style="border: 2px dashed #d0d7de; border-radius: 6px; padding: 40px 20px; text-align: center; margin-bottom: 20px; background-color: #f6f8fa;">
+                        <div style="margin-bottom: 15px;">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="1" style="margin: 0 auto;">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14,2 14,8 20,8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10,9 9,9 8,9"></polyline>
+                            </svg>
+                        </div>
+                        <div style="color: #1f2937; font-size: 16px; margin-bottom: 8px;">拖拽文件到此处或点击选择文件</div>
+                        <div style="color: #6b7280; font-size: 14px; margin-bottom: 20px;">支持 PDF、Word、Excel、图片、CAD等格式，单个文件最大50MB</div>
+                        <input type="file" id="bid-attachment-file-input" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png,.gif,.dwg,.dwf" style="display: none;">
+                        <button type="button" class="btn btn-primary" onclick="document.getElementById('bid-attachment-file-input').click()">选择文件</button>
+                    </div>
+                    
+                    <div id="bid-file-list" style="display: none;">
+                        <div class="detail-title">待上传文件</div>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>文件名</th>
+                                    <th>文件大小</th>
+                                    <th>状态</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bid-upload-file-list">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('bid-attachment-upload-modal')">取消</button>
+                    <button type="button" class="btn btn-primary" id="bid-upload-btn" onclick="submitBidAttachments()" disabled>开始上传</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- 销售订单上传客户满意度调查表模态框 -->
     <div id="sales-upload-survey-modal" class="modal">
         <div class="modal-content" style="max-width: 600px;">
@@ -6331,11 +6422,6 @@
             </div>
             <div class="modal-body">
                 <form id="sales-upload-survey-form">
-                    <div class="form-field">
-                        <label>调查表编号 <span class="required">*</span></label>
-                        <input type="text" class="filter-input" name="surveyNo" required placeholder="请输入调查表编号">
-                    </div>
-                    
                     <div class="form-field">
                         <label>关联合同编号 <span class="required">*</span></label>
                         <select class="filter-input" name="contractNo" required>
@@ -6385,11 +6471,6 @@
             </div>
             <div class="modal-body">
                 <form id="contract-upload-survey-form">
-                    <div class="form-field">
-                        <label>调查表编号 <span class="required">*</span></label>
-                        <input type="text" class="filter-input" name="surveyNo" required placeholder="请输入调查表编号">
-                    </div>
-                    
                     <div class="form-field">
                         <label>关联合同编号 <span class="required">*</span></label>
                         <select class="filter-input" name="contractNo" required>
@@ -7301,9 +7382,198 @@
         }
         
         function uploadBidFile(bidId) {
-            alert(`上传标包 ${bidId} 的文件功能\n\n功能包括：\n- 标包相关技术文档\n- 标包图纸文件\n- 标包合同附件\n- 其他相关文档`);
-            // 这里可以打开文件上传对话框或模态框
-            // 实际项目中会调用文件上传API
+            // 存储当前标包ID
+            window.currentBidId = bidId;
+            // 打开文件上传模态框
+            document.getElementById('bid-attachment-upload-modal').style.display = 'block';
+        }
+        
+        // 标包附件上传相关函数
+        function uploadBidAttachment() {
+            document.getElementById('bid-attachment-upload-modal').style.display = 'block';
+        }
+        
+        // 文件选择处理
+        document.addEventListener('DOMContentLoaded', function() {
+            const fileInput = document.getElementById('bid-attachment-file-input');
+            if (fileInput) {
+                fileInput.addEventListener('change', handleBidFileSelect);
+            }
+        });
+        
+        function handleBidFileSelect(event) {
+            const files = event.target.files;
+            if (files.length > 0) {
+                displayBidSelectedFiles(files);
+            }
+        }
+        
+        function displayBidSelectedFiles(files) {
+            const fileList = document.getElementById('bid-file-list');
+            const fileTableBody = document.getElementById('bid-upload-file-list');
+            const uploadBtn = document.getElementById('bid-upload-btn');
+            
+            fileList.style.display = 'block';
+            fileTableBody.innerHTML = '';
+            
+            Array.from(files).forEach((file, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${file.name}</td>
+                    <td>${formatFileSize(file.size)}</td>
+                    <td><span class="status-pending">待上传</span></td>
+                    <td><button type="button" class="btn btn-secondary" onclick="removeBidFile(${index})" style="padding: 4px 8px;">移除</button></td>
+                `;
+                fileTableBody.appendChild(row);
+            });
+            
+            uploadBtn.disabled = false;
+            window.bidSelectedFiles = files;
+        }
+        
+        function removeBidFile(index) {
+            // 创建新的文件列表，排除指定索引的文件
+            const dt = new DataTransfer();
+            const files = Array.from(window.bidSelectedFiles);
+            
+            files.forEach((file, i) => {
+                if (i !== index) {
+                    dt.items.add(file);
+                }
+            });
+            
+            // 更新文件输入
+            document.getElementById('bid-attachment-file-input').files = dt.files;
+            
+            // 重新显示文件列表
+            if (dt.files.length > 0) {
+                displayBidSelectedFiles(dt.files);
+            } else {
+                document.getElementById('bid-file-list').style.display = 'none';
+                document.getElementById('bid-upload-btn').disabled = true;
+                window.bidSelectedFiles = null;
+            }
+        }
+        
+        function submitBidAttachments() {
+            const files = window.bidSelectedFiles;
+            if (!files || files.length === 0) {
+                alert('请选择要上传的文件');
+                return;
+            }
+            
+            // 模拟文件上传过程
+            const fileTableBody = document.getElementById('bid-upload-file-list');
+            const rows = fileTableBody.querySelectorAll('tr');
+            
+            rows.forEach((row, index) => {
+                const statusCell = row.querySelector('td:nth-child(3)');
+                statusCell.innerHTML = '<span class="status-uploading">上传中...</span>';
+                
+                // 模拟上传延迟
+                setTimeout(() => {
+                    statusCell.innerHTML = '<span class="status-success">上传成功</span>';
+                    
+                    // 当所有文件上传完成后
+                    if (index === rows.length - 1) {
+                        setTimeout(() => {
+                            alert('所有文件上传成功！');
+                            closeModal('bid-attachment-upload-modal');
+                            // 刷新附件列表
+                            refreshBidAttachmentList();
+                        }, 500);
+                    }
+                }, (index + 1) * 1000);
+            });
+        }
+        
+        function refreshBidAttachmentList() {
+            // 在实际项目中，这里会重新加载附件列表
+            // 现在只是模拟添加新的附件到列表中
+            const attachmentList = document.getElementById('bid-attachment-list');
+            if (window.bidSelectedFiles) {
+                Array.from(window.bidSelectedFiles).forEach(file => {
+                    const row = document.createElement('tr');
+                    const now = new Date();
+                    const uploadTime = now.getFullYear() + '-' + 
+                                     String(now.getMonth() + 1).padStart(2, '0') + '-' + 
+                                     String(now.getDate()).padStart(2, '0') + ' ' +
+                                     String(now.getHours()).padStart(2, '0') + ':' + 
+                                     String(now.getMinutes()).padStart(2, '0') + ':' + 
+                                     String(now.getSeconds()).padStart(2, '0');
+                    
+                    row.innerHTML = `
+                        <td>${file.name}</td>
+                        <td>${getFileType(file.name)}</td>
+                        <td>${formatFileSize(file.size)}</td>
+                        <td>${uploadTime}</td>
+                        <td>
+                            <a href="#" class="action-link" onclick="downloadBidAttachment('${file.name}')">下载</a>
+                            <a href="#" class="action-link" onclick="previewBidAttachment('${file.name}')">预览</a>
+                            <a href="#" class="action-link danger" onclick="deleteBidAttachment('${file.name}')">删除</a>
+                        </td>
+                    `;
+                    attachmentList.appendChild(row);
+                });
+            }
+            
+            // 清理临时数据
+            window.bidSelectedFiles = null;
+            document.getElementById('bid-attachment-file-input').value = '';
+            document.getElementById('bid-file-list').style.display = 'none';
+            document.getElementById('bid-upload-btn').disabled = true;
+        }
+        
+        function getFileType(filename) {
+            const ext = filename.split('.').pop().toLowerCase();
+            const typeMap = {
+                'pdf': 'PDF',
+                'doc': 'Word',
+                'docx': 'Word',
+                'xls': 'Excel',
+                'xlsx': 'Excel',
+                'jpg': '图片',
+                'jpeg': '图片',
+                'png': '图片',
+                'gif': '图片',
+                'dwg': 'CAD',
+                'dwf': 'CAD'
+            };
+            return typeMap[ext] || '其他';
+        }
+        
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+        
+        // 标包附件操作函数
+        function downloadBidAttachment(filename) {
+            alert(`下载文件：${filename}`);
+            // 实际项目中会下载文件
+        }
+        
+        function previewBidAttachment(filename) {
+            alert(`预览文件：${filename}`);
+            // 实际项目中会打开文件预览
+        }
+        
+        function deleteBidAttachment(filename) {
+            if (confirm(`确定要删除文件"${filename}"吗？`)) {
+                // 找到并删除表格行
+                const attachmentList = document.getElementById('bid-attachment-list');
+                const rows = attachmentList.querySelectorAll('tr');
+                rows.forEach(row => {
+                    const firstCell = row.querySelector('td:first-child');
+                    if (firstCell && firstCell.textContent === filename) {
+                        row.remove();
+                    }
+                });
+                alert('文件删除成功！');
+            }
         }
         
         function loadBidData(bidId) {
@@ -9151,7 +9421,6 @@
             
             const formData = new FormData(this);
             const data = {
-                surveyNo: formData.get('surveyNo'),
                 contractNo: formData.get('contractNo'),
                 orderNo: formData.get('orderNo'),
                 storageLocation: formData.get('storageLocation'),
@@ -9183,7 +9452,6 @@
             
             const formData = new FormData(this);
             const data = {
-                surveyNo: formData.get('surveyNo'),
                 contractNo: formData.get('contractNo'),
                 orderNo: formData.get('orderNo'),
                 storageLocation: formData.get('storageLocation'),
@@ -9224,19 +9492,16 @@
             const form = document.getElementById('survey-form');
             const mockData = {
                 'SURVEY-2025001': {
-                    surveyNo: 'SURVEY-2025001',
                     contractNo: 'CON-2025001',
                     orderNo: 'XS-2505010',
                     storageLocation: '档案室A区-03层-电力设备专柜'
                 },
                 'SURVEY-2025002': {
-                    surveyNo: 'SURVEY-2025002',
                     contractNo: 'CON-2025002',
                     orderNo: 'XS-2505005',
                     storageLocation: '档案室B区-02层-变压器设备专区'
                 },
                 'SURVEY-2025003': {
-                    surveyNo: 'SURVEY-2025003',
                     contractNo: 'CON-2025001',
                     orderNo: 'RE25C0010',
                     storageLocation: '档案室C区-01层-配电专用库房'
