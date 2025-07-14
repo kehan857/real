@@ -3518,49 +3518,45 @@
                         <div class="table-header">
                             <div class="table-title">未确认联系人列表</div>
                             <div class="table-actions">
-                                <button class="btn btn-primary" onclick="showContractForm()">新增合同</button>
+                                <button class="btn btn-primary" onclick="showTechContactForm()">确认技术联系人</button>
                                 <button class="btn btn-secondary">导出</button>
                             </div>
                         </div>
                         <div class="table-scroll-container">
-                            <table class="data-table" style="min-width: 3040px; width: 100%;">
+                            <table class="data-table" style="min-width: 2800px; width: 100%;">
                                 <thead>
                                     <tr>
                                         <th style="width: 80px;">序号</th>
+                                        <th style="width: 80px;">订单类型</th>
                                         <th style="width: 120px;">供货单号</th>
                                         <th style="width: 200px;">合同编号（买方）</th>
                                         <th style="width: 200px;">框架协议名称</th>
                                         <th style="width: 180px;">买方</th>
-                                        <th style="width: 100px;">省份</th>
-                                        <th style="width: 80px;">订单类型</th>
                                         <th style="width: 150px;">卖方</th>
-                                        <th style="width: 120px;">签订日期</th>
+                                        <th style="width: 150px;">合同状态</th>
                                         <th style="width: 120px;">分项价(不含税)</th>
                                         <th style="width: 120px;">分项价(含税)</th>
                                         <th style="width: 120px;">RE含税单价</th>
-                                        <th style="width: 150px;">交货时间</th>
-                                        <th style="width: 120px;">创建日期</th>
-                                        <th style="width: 150px;">项目名称</th>
+                                        <th style="width: 120px;">签订日期</th>
+                                        <th style="width: 120px;">创建时间</th>
                                         <th style="width: 200px;">操作</th>
                                     </tr>
                                 </thead>
                             <tbody>
                                 <tr onclick="showContractSubTable('CON-2025001')" style="cursor: pointer;" class="clickable-row">
                                     <td>1</td>
+                                    <td><span class="status-badge status-normal">正常</span></td>
                                     <td><a href="#" class="action-link" onclick="event.stopPropagation(); showContractDetail('CON-2025001')" style="font-weight: 600; color: #1890ff;">SGD-2025001001</a></td>
                                     <td>SGAH-AGREEMENTSTOCK-2025001</td>
                                     <td>2025年电力设备采购标包</td>
                                     <td>国网安徽省电力有限公司</td>
-                                    <td>安徽省</td>
-                                    <td><span class="status-badge status-normal">正常</span></td>
                                     <td>河南光大实业有限公司</td>
-                                    <td>2025-05-15</td>
+                                    <td><span class="contract-status tech-confirming">技术沟通确认技术方案</span></td>
                                     <td>¥1,371,681.42</td>
                                     <td>¥1,580,000.00</td>
                                     <td>¥65,000.00</td>
-                                    <td>2025-07-15</td>
+                                    <td>2025-05-15</td>
                                     <td>2025-05-23</td>
-                                    <td>安徽省电力系统智能化改造项目</td>
                                     <td>
                                         <a href="#" class="action-link" onclick="event.stopPropagation(); showContractDetail('CON-2025001')">详情</a>
                                         <a href="#" class="action-link" onclick="event.stopPropagation(); editContract('CON-2025001')">编辑</a>
@@ -3580,19 +3576,18 @@
 
                                 <tr onclick="showContractSubTable('CON-2025002')" style="cursor: pointer;" class="clickable-row">
                                     <td>2</td>
+                                    <td><span class="status-badge status-urgent">紧急</span></td>
                                     <td><a href="#" class="action-link" onclick="event.stopPropagation(); showContractDetail('CON-2025002')" style="font-weight: 600; color: #1890ff;">SGD-2025001002</a></td>
                                     <td>JSSP-AGREEMENTSTOCK-2025002</td>
                                     <td>变压器采购标包</td>
                                     <td>江苏食品技术有限公司</td>
-                                    <td><span class="status-badge status-urgent">紧急</span></td>
                                     <td>河南光大实业有限公司</td>
-                                    <td>2025-05-18</td>
+                                    <td><span class="contract-status tech-confirming">技术沟通确认技术方案</span></td>
                                     <td>¥2,039,823.01</td>
                                     <td>¥2,354,500.00</td>
                                     <td>¥28,500.00</td>
-                                    <td>2025-08-10</td>
+                                    <td>2025-05-18</td>
                                     <td>2025-05-25</td>
-                                    <td>江苏食品加工设备电力配套项目</td>
                                     <td>
                                         <a href="#" class="action-link" onclick="event.stopPropagation(); showContractDetail('CON-2025002')">详情</a>
                                         <a href="#" class="action-link" onclick="event.stopPropagation(); editContract('CON-2025002')">编辑</a>
@@ -3612,19 +3607,18 @@
 
                                 <tr onclick="showContractSubTable('CON-2025003')" style="cursor: pointer;" class="clickable-row">
                                     <td>3</td>
+                                    <td><span class="status-badge status-special">特急</span></td>
                                     <td><a href="#" class="action-link" onclick="event.stopPropagation(); showContractDetail('CON-2025003')" style="font-weight: 600; color: #1890ff;">SGD-2025001003</a></td>
                                     <td>HNKJ-AGREEMENTSTOCK-2025003</td>
                                     <td>配电设备采购标包</td>
                                     <td>河南科技集团有限公司</td>
-                                    <td><span class="status-badge status-special">特急</span></td>
                                     <td>河南光大实业有限公司</td>
-                                    <td>2025-05-20</td>
+                                    <td><span class="contract-status tech-confirming">技术沟通确认技术方案</span></td>
                                     <td>¥849,557.52</td>
                                     <td>¥980,000.00</td>
                                     <td>¥12,800.00</td>
-                                    <td>2025-06-30</td>
+                                    <td>2025-05-20</td>
                                     <td>2025-05-26</td>
-                                    <td>河南科技设备采购项目</td>
                                     <td>
                                         <a href="#" class="action-link" onclick="event.stopPropagation(); showContractDetail('CON-2025003')">详情</a>
                                         <a href="#" class="action-link" onclick="event.stopPropagation(); editContract('CON-2025003')">编辑</a>
@@ -7116,6 +7110,8 @@
                 content.innerHTML = getBidFloatingActions();
             } else if (currentModule === 'contract') {
                 content.innerHTML = getContractFloatingActions();
+            } else if (currentModule === 'unconfirmed-contact') {
+                content.innerHTML = getUnconfirmedContactFloatingActions();
             } else {
                 content.innerHTML = getDefaultFloatingActions();
             }
@@ -7221,6 +7217,62 @@
             `;
         }
 
+        function getUnconfirmedContactFloatingActions() {
+            return `
+                <div class="floating-action-group">
+                    <div class="floating-action-group-title">技术联系人操作</div>
+                    <a href="#" class="floating-action-item primary" onclick="showTechContactForm()">
+                        <i class="fas fa-user-plus"></i>
+                        确认技术联系人
+                    </a>
+                    <a href="#" class="floating-action-item success" onclick="batchConfirmTechContact()">
+                        <i class="fas fa-users-cog"></i>
+                        批量确认技术联系人
+                    </a>
+                    <a href="#" class="floating-action-item" onclick="exportUnconfirmedContactData()">
+                        <i class="fas fa-download"></i>
+                        导出数据
+                    </a>
+                </div>
+                
+                <div class="floating-action-group">
+                    <div class="floating-action-group-title">技术管理</div>
+                    <a href="#" class="floating-action-item" onclick="showTechContactReport()">
+                        <i class="fas fa-users"></i>
+                        技术联系人报表
+                    </a>
+                    <a href="#" class="floating-action-item" onclick="showTechContactStatistics()">
+                        <i class="fas fa-chart-pie"></i>
+                        技术联系人统计
+                    </a>
+                </div>
+                
+                <div class="floating-action-group">
+                    <div class="floating-action-group-title">批量操作</div>
+                    <a href="#" class="floating-action-item" onclick="batchEditUnconfirmedContact()">
+                        <i class="fas fa-edit"></i>
+                        批量编辑
+                    </a>
+                    <a href="#" class="floating-action-item danger" onclick="batchDeleteUnconfirmedContact()">
+                        <i class="fas fa-trash"></i>
+                        批量删除
+                    </a>
+                </div>
+                
+                <div class="floating-action-group">
+                    <div class="floating-action-group-title">流程管理</div>
+                    <a href="#" class="floating-action-item" onclick="showTechContactProcess()">
+                        <i class="fas fa-project-diagram"></i>
+                        技术确认流程
+                    </a>
+                    <a href="#" class="floating-action-item" onclick="showTechContactStatus()">
+                        <i class="fas fa-info-circle"></i>
+                        确认状态
+                    </a>
+                </div>
+            `;
+        }
+
         function getDefaultFloatingActions() {
             return `
                 <div class="floating-action-group">
@@ -7243,6 +7295,7 @@
                 const href = activeLink.getAttribute('onclick');
                 if (href.includes("'bid'")) return 'bid';
                 if (href.includes("'contract'")) return 'contract';
+                if (href.includes("'unconfirmed-contact'")) return 'unconfirmed-contact';
                 if (href.includes("'sales'")) return 'sales';
                 if (href.includes("'order'")) return 'order';
                 if (href.includes("'survey'")) return 'survey';
@@ -10992,6 +11045,39 @@
 
         function showContractStatus() {
             alert('合同状态查看功能');
+            hideFloatingPanel();
+        }
+
+        // 未确认联系人模块特有操作函数
+        function exportUnconfirmedContactData() {
+            alert('导出未确认联系人数据功能');
+            hideFloatingPanel();
+        }
+
+        function showTechContactStatistics() {
+            alert('技术联系人统计功能');
+            hideFloatingPanel();
+        }
+
+        function batchEditUnconfirmedContact() {
+            alert('批量编辑未确认联系人功能');
+            hideFloatingPanel();
+        }
+
+        function batchDeleteUnconfirmedContact() {
+            if (confirm('确定要批量删除选中的未确认联系人吗？')) {
+                alert('批量删除未确认联系人功能');
+                hideFloatingPanel();
+            }
+        }
+
+        function showTechContactProcess() {
+            alert('技术确认流程功能');
+            hideFloatingPanel();
+        }
+
+        function showTechContactStatus() {
+            alert('确认状态功能');
             hideFloatingPanel();
         }
 
