@@ -24,16 +24,20 @@
 
         .sidebar {
             width: 240px;
-            background: #1e293b;
+            background: #003366;
             color: white;
             flex-shrink: 0;
+            font-family: "Source Han Sans CN", "思源黑体", "Microsoft YaHei", sans-serif;
         }
 
         .logo {
             padding: 20px;
             font-size: 18px;
-            font-weight: 500;
+            font-weight: bold;
+            font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
             border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: white;
+            text-align: center;
         }
 
         .nav-menu {
@@ -47,20 +51,22 @@
         .nav-link {
             display: flex;
             align-items: center;
-            padding: 8px 16px;
-            color: #94a3b8;
+            padding: 12px 16px;
+            color: white;
             text-decoration: none;
             transition: all 0.3s;
             justify-content: space-between;
+            font-family: "Source Han Sans CN", "思源黑体", "Microsoft YaHei", sans-serif;
+            font-weight: normal;
         }
 
         .nav-link:hover {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.15);
             color: white;
         }
 
         .nav-link.active {
-            background: #1890FF;
+            background: rgba(255,255,255,0.2);
             color: white;
         }
 
@@ -76,14 +82,46 @@
 
         .nav-submenu .nav-link {
             padding-left: 40px;
+            color: white;
+            font-weight: normal;
+            font-size: 14px;
+        }
+
+        .nav-submenu .nav-link:hover {
+            background: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+        .nav-submenu .nav-link.active {
+            background: rgba(255,255,255,0.15);
+            color: white;
         }
 
         .nav-toggle {
             transition: transform 0.3s;
+            margin-left: auto;
+            color: white !important;
+            font-size: 12px;
         }
 
         .nav-toggle.expanded {
             transform: rotate(90deg);
+        }
+
+        /* 菜单项布局优化 */
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link span:first-child {
+            margin-right: 8px;
+            color: white !important;
+            font-size: 14px;
+        }
+
+        .nav-link span:nth-child(2) {
+            flex: 1;
+            color: white !important;
         }
 
         .main-content {
@@ -384,7 +422,7 @@
         
         .data-table th {
             background: #f9fafb;
-            padding: 8px 12px;
+            padding: 4px 6px;
             text-align: left;
             font-weight: 500;
             color: #374151;
@@ -392,9 +430,15 @@
         }
         
         .data-table td {
-            padding: 8px 12px;
+            padding: 4px 6px;
             border-bottom: 1px solid #e5e7eb;
             color: #4b5563;
+        }
+        
+        /* 覆盖所有行内padding样式，统一压缩列间距 */
+        .data-table th[style*="padding"],
+        .data-table td[style*="padding"] {
+            padding: 4px 3px !important;
         }
         
         .status-badge {
@@ -853,11 +897,11 @@
         
         .data-table th,
         .data-table td {
-            padding: 8px 12px;
+            padding: 4px 6px;
             text-align: left;
             border-bottom: 1px solid #F0F0F0;
             border-right: 1px solid #F0F0F0;
-            font-size: 14px;
+            font-size: 13px;
         }
         
         .data-table th:last-child,
@@ -1526,9 +1570,9 @@
         .table-scroll-container .data-table th,
         .table-scroll-container .data-table td {
             white-space: nowrap;
-            padding: 12px 16px;
+            padding: 4px 6px;
             border-right: 1px solid #F0F0F0;
-            font-size: 14px;
+            font-size: 13px;
         }
         
         .table-scroll-container .data-table th:last-child,
@@ -1551,7 +1595,7 @@
         
         /* 订单查询表格单元格样式 */
         #order-module .data-table td {
-            padding: 8px 4px !important;
+            padding: 4px 3px !important;
             word-wrap: break-word;
             word-break: break-all;
             white-space: normal;
@@ -1561,7 +1605,7 @@
         }
         
         #order-module .data-table th {
-            padding: 8px 4px !important;
+            padding: 4px 3px !important;
             word-wrap: break-word;
             white-space: normal;
             vertical-align: top;
@@ -2290,6 +2334,7 @@
         /* 强制保护侧边栏样式 */
         body .sidebar {
             width: 200px !important;
+            background: #003366 !important;
             display: block !important;
             visibility: visible !important;
             opacity: 1 !important;
@@ -3716,7 +3761,7 @@
                                         <th style="width: 180px;">客户名称</th>
                                         <th style="width: 80px;">业务员</th>
                                         <th style="width: 150px;">项目名称</th>
-                                        <th style="width: 120px;">标包名称</th>
+                                        <th style="width: 120px;">框架协议名称</th>
                                         <th style="width: 100px;">签订日期</th>
                                         <th style="width: 100px;">技术图纸</th>
                                         <th style="width: 100px;">收货确认单</th>
@@ -4124,7 +4169,7 @@
                                             <th style="width: 130px;">订单编号 <span style="color: white;">🔽</span></th>
                                             <th style="width: 180px;">供货单号 <span style="color: white;">🔽</span></th>
                                             <th style="width: 200px;">协议合同 <span style="color: white;">🔽</span></th>
-                                            <th style="width: 130px;">标包名称 <span style="color: white;">🔽</span></th>
+                                            <th style="width: 130px;">框架协议名称 <span style="color: white;">🔽</span></th>
                                             <th style="width: 260px;">项目单位 <span style="color: white;">🔽</span></th>
                                             <th style="width: 180px;">项目名称 <span style="color: white;">🔽</span></th>
                                         </tr>
@@ -4419,7 +4464,7 @@
                                         <span id="order-detail-workshop">装配</span>
                                     </div>
                                     <div style="grid-column: span 3;">
-                                        <label style="font-weight: bold; color: #333;">标包名称：</label>
+                                        <label style="font-weight: bold; color: #333;">框架协议名称：</label>
                                         <span id="order-detail-package">2025年5月中标第一次招标PC装置一国网安徽电力2025年第一次物资协议库存</span>
                                     </div>
                                     <div>
@@ -4695,7 +4740,7 @@
                                     <th>关联合同编号</th>
                                     <th>订单编号</th>
                                     <th>客户名称</th>
-                                    <th>标包名称</th>
+                                    <th>框架协议名称</th>
                                     <th>存放位置</th>
                                     <th>创建时间</th>
                                     <th>附件</th>
@@ -4988,7 +5033,7 @@
                             <div style="font-weight: 600;">SGD-2025001001</div>
                         </div>
                         <div>
-                            <div style="color: #6c757d; margin-bottom: 5px;">标包名称：</div>
+                            <div style="color: #6c757d; margin-bottom: 5px;">框架协议名称：</div>
                             <div style="font-weight: 600;">2025年电力设备采购标包</div>
                         </div>
                         <div>
@@ -5453,7 +5498,7 @@
                         <tr><td>订单类型</td><td>正常</td><td>订单编号</td><td>4000574336</td></tr>
                         <tr><td>项目单位</td><td>国网安徽省电力有限公司繁昌县供</td><td>供货单号</td><td>SO12400057433</td></tr>
                         <tr><td>协议合同</td><td>SGAHWZ00HTMM2505173</td><td>生产车间</td><td>表箱</td></tr>
-                        <tr><td>标包名称</td><td>2025年5月中标—安徽PC表箱一国网安徽电力2025年第一次物资协议采购</td><td>买方</td><td>国网安徽省电力有限公司物资分公司</td></tr>
+                        <tr><td>框架协议名称</td><td>2025年5月中标—安徽PC表箱一国网安徽电力2025年第一次物资协议采购</td><td>买方</td><td>国网安徽省电力有限公司物资分公司</td></tr>
                     </table>
                 </div>
                 
@@ -5514,7 +5559,7 @@
                 <div class="detail-section">
                     <div class="detail-title">标包信息</div>
                     <table class="data-table">
-                        <tr><td>标包名称</td><td>2025年电力设备采购标包</td><td>序号</td><td>1</td></tr>
+                        <tr><td>框架协议名称</td><td>2025年电力设备采购标包</td><td>序号</td><td>1</td></tr>
                         <tr><td>合同编号（买方）</td><td>CON-BUYER-001</td><td>货物名称</td><td>电力设备</td></tr>
                         <tr><td>买方</td><td>国网安徽省电力有限公司</td><td>卖方</td><td>河南光大实业有限公司</td></tr>
                         <tr><td>签订日期</td><td>2025-05-15</td><td>合同价款(含税)人民币元</td><td>¥1,580,000.00</td></tr>
@@ -5789,7 +5834,7 @@
                         <div class="detail-title">基本信息</div>
                         <div class="form-grid">
                             <div class="form-field">
-                                <label>标包名称 <span class="required">*</span></label>
+                                <label>框架协议名称 <span class="required">*</span></label>
                                 <input type="text" class="filter-input" name="bidPackageName" required>
                             </div>
                             <div class="form-field">
@@ -6175,7 +6220,7 @@
                                 <thead style="background: #f8f9fa;">
                                     <tr>
                                         <th style="padding: 8px;">序号</th>
-                                        <th style="padding: 8px;">标包名称</th>
+                                        <th style="padding: 8px;">框架协议名称</th>
                                         <th style="padding: 8px;">合同编号（买方）</th>
                                         <th style="padding: 8px;">货物名称</th>
                                         <th style="padding: 8px;">买方</th>
@@ -6226,7 +6271,7 @@
                                         <th style="padding: 8px;">序号</th>
                                         <th style="padding: 8px;">供货单号</th>
                                         <th style="padding: 8px;">合同编号（买方）</th>
-                                        <th style="padding: 8px;">标包名称</th>
+                                        <th style="padding: 8px;">框架协议名称</th>
                                         <th style="padding: 8px;">买方</th>
                                         <th style="padding: 8px;">订单类型</th>
                                         <th style="padding: 8px;">卖方</th>
@@ -6995,6 +7040,10 @@
         }
 
         function showModule(moduleId, event) {
+        // 新增：每次切换模块都先隐藏明细面板
+        if (typeof hideSubTable === 'function') {
+            hideSubTable();
+        }
             if (event) {
                 event.preventDefault();
                 // 移除所有导航链接的active类
@@ -7005,8 +7054,8 @@
                 event.target.classList.add('active');
             }
             
-            // 隐藏所有模块
-            document.querySelectorAll('.module').forEach(module => {
+            // 隐藏所有模块（排除明细面板）
+            document.querySelectorAll('.module:not(#sub-table-section)').forEach(module => {
                 module.classList.add('hidden');
             });
             
@@ -7047,6 +7096,13 @@
                     }
                 }
             });
+            
+            // 延迟再次隐藏明细面板，防止异步操作重新显示
+            setTimeout(() => {
+                if (typeof hideSubTable === 'function') {
+                    hideSubTable();
+                }
+            }, 100);
             
             return false;
         }
@@ -7680,7 +7736,7 @@
                 // 这里可以填充编辑数据
                 loadBidData(bidId);
             } else {
-                title.textContent = '新增标包';
+                title.textContent = '新增框架协议';
                 form.reset();
                 // 清空明细表
                 const tbody = document.querySelector('#bid-details-table tbody');
