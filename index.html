@@ -13,7 +13,7 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.5;
+            line-height: 1.3;
             background: #f3f4f6;
         }
         
@@ -41,13 +41,13 @@
         }
 
         .nav-item {
-            margin: 4px 0;
+            margin: 2px 0;
         }
 
         .nav-link {
             display: flex;
             align-items: center;
-            padding: 12px 20px;
+            padding: 8px 16px;
             color: #94a3b8;
             text-decoration: none;
             transition: all 0.3s;
@@ -75,7 +75,7 @@
         }
 
         .nav-submenu .nav-link {
-            padding-left: 48px;
+            padding-left: 40px;
         }
 
         .nav-toggle {
@@ -88,15 +88,15 @@
 
         .main-content {
             flex: 1;
-            padding: 20px;
+            padding: 16px;
             overflow-x: hidden;
         }
 
         .header {
             background: white;
-            padding: 16px 24px;
+            padding: 12px 20px;
             border-radius: 4px;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
 
@@ -106,7 +106,7 @@
         }
 
         .btn {
-            padding: 8px 16px;
+            padding: 6px 12px;
             border-radius: 4px;
             border: none;
             font-size: 14px;
@@ -144,9 +144,9 @@
         
         .filter-section {
             background: white;
-            padding: 20px;
+            padding: 16px;
             border-radius: 4px;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
         
@@ -157,7 +157,7 @@
         }
         
         .filter-input {
-            padding: 8px 12px;
+            padding: 6px 10px;
             border: 1px solid #d1d5db;
             border-radius: 4px;
             font-size: 14px;
@@ -176,7 +176,7 @@
         }
         
         .table-header {
-            padding: 16px 20px;
+            padding: 12px 16px;
             border-bottom: 1px solid #e5e7eb;
             display: flex;
             justify-content: space-between;
@@ -207,7 +207,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             background: white;
-            padding: 20px;
+            padding: 16px;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             z-index: 2000;
@@ -384,7 +384,7 @@
         
         .data-table th {
             background: #f9fafb;
-            padding: 12px 16px;
+            padding: 8px 12px;
             text-align: left;
             font-weight: 500;
             color: #374151;
@@ -392,7 +392,7 @@
         }
         
         .data-table td {
-            padding: 12px 16px;
+            padding: 8px 12px;
             border-bottom: 1px solid #e5e7eb;
             color: #4b5563;
         }
@@ -509,14 +509,15 @@
         .modal-content {
             position: relative;
             background: white;
-            margin: 40px auto;
+            margin: 25px auto;
             border-radius: 8px;
-            max-height: calc(100vh - 80px);
+            max-height: calc(100vh - 50px);
+            min-height: 65vh;
             overflow-y: auto;
         }
         
         .modal-header {
-            padding: 16px 24px;
+            padding: 12px 20px;
             border-bottom: 1px solid #e5e7eb;
             display: flex;
             justify-content: space-between;
@@ -544,7 +545,7 @@
         }
 
         .modal-body {
-            padding: 24px;
+            padding: 20px;
         }
 
         .detail-section {
@@ -852,7 +853,7 @@
         
         .data-table th,
         .data-table td {
-            padding: 12px 16px;
+            padding: 8px 12px;
             text-align: left;
             border-bottom: 1px solid #F0F0F0;
             border-right: 1px solid #F0F0F0;
@@ -912,6 +913,53 @@
             background-color: #FAFAFA;
             color: #8C8C8C;
             border: 1px solid #D9D9D9;
+        }
+        
+        /* 合同状态样式 */
+        .contract-status {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+            display: inline-block;
+            text-align: center;
+            min-width: 90px;
+        }
+        
+        .contract-status.uploaded {
+            background-color: #F6FFED;
+            color: #52C41A;
+            border: 1px solid #B7EB8F;
+        }
+        
+        .contract-status.contact-confirmed {
+            background-color: #F6FFED;
+            color: #52C41A;
+            border: 1px solid #B7EB8F;
+        }
+        
+        .contract-status.tech-confirming {
+            background-color: #E6F7FF;
+            color: #1890FF;
+            border: 1px solid #91D5FF;
+        }
+        
+        .contract-status.equipment-uploading {
+            background-color: #FFF7E6;
+            color: #FA8C16;
+            border: 1px solid #FFD591;
+        }
+        
+        .contract-status.final-confirming {
+            background-color: #FFF2E8;
+            color: #FA541C;
+            border: 1px solid #FFBB96;
+        }
+        
+        .contract-status.order-generated {
+            background-color: #F9F0FF;
+            color: #722ED1;
+            border: 1px solid #D3ADF7;
         }
         
         /* 表单字段样式 */
@@ -1217,6 +1265,18 @@
         /* 表单样式增强 */
         .form-grid {
             display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .form-grid-4 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .form-grid-2 {
+            display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
@@ -1303,7 +1363,7 @@
             line-height: 1.5;
         }
 
-        /* 车间分配表格样式 */
+        /* 产品类型表格样式 */
         #tech-task-table {
             font-size: 12px;
         }
@@ -1583,7 +1643,7 @@
             border-radius: 3px;
         }
 
-        /* 车间分配操作按钮样式 */
+        /* 产品类型操作按钮样式 */
         .tech-task-actions {
             display: flex;
             gap: 4px;
@@ -1601,7 +1661,7 @@
             opacity: 0.8;
         }
 
-        /* 车间分配表格整体样式优化 */
+        /* 产品类型表格整体样式优化 */
         #tech-task-table {
             border-collapse: separate;
             border-spacing: 0;
@@ -2525,7 +2585,7 @@
                         <span class="nav-toggle expanded" style="color: white;">▶</span>
                     </a>
                     <ul class="nav-submenu expanded">
-                        <li><a href="#" class="nav-link active" onclick="return showModule('bid', event)">标包管理</a></li>
+                        <li><a href="#" class="nav-link active" onclick="return showModule('bid', event)">框架协议管理</a></li>
                         <li><a href="#" class="nav-link" onclick="return showModule('contract', event)">合同管理</a></li>
                         <li><a href="#" class="nav-link" onclick="return showModule('unconfirmed-contact', event)">未确认联系人</a></li>
                         <li><a href="#" class="nav-link" onclick="return showModule('sales', event)">销售订单</a></li>
@@ -2535,7 +2595,7 @@
                     </ul>
                 </li>
                 <!-- 新增售后协同主菜单及子菜单 -->
-                <li class="nav-item">
+                <li class="nav-item" style="display: none;">
                     <a href="#" class="nav-link" onclick="toggleSubmenu(event)">
                         <span style="color: white;">🛠️</span><span> 售后协同</span>
                         <span class="nav-toggle" style="color: white;">▶</span>
@@ -2556,7 +2616,7 @@
         <main class="main-content">
             <header class="header">
                 <div class="breadcrumb">
-                    <span id="current-module">标包管理</span>
+                    <span id="current-module">框架协议管理</span>
                 </div>
             </header>
 
@@ -3079,7 +3139,7 @@
                     </div>
                 </div>
 
-                <!-- 标包管理模块 -->
+                <!-- 框架协议管理模块 -->
                 <div id="bid-module" class="module">
                     <div class="filter-section">
                         <div class="filter-row">
@@ -3093,19 +3153,20 @@
                     </div>
                     <div class="table-section">
                         <div class="table-header">
-                            <div class="table-title">标包管理列表</div>
+                            <div class="table-title">框架协议管理列表</div>
                             <div class="table-actions">
-                                <button class="btn btn-primary" onclick="showBidForm()">新增标包</button>
+                                <button class="btn btn-primary" onclick="showBidForm()">新增框架协议</button>
                                 <button class="btn btn-secondary">导出</button>
                             </div>
                         </div>
                         <div class="table-scroll-container">
-                            <table class="data-table" style="min-width: 2600px; width: 100%;">
+                            <table class="data-table" style="min-width: 3200px; width: 100%;">
                             <thead>
                                 <tr>
                                         <th style="width: 80px;">序号</th>
-                                        <th style="width: 200px;">标包名称</th>
                                         <th style="width: 180px;">合同编号（买方）</th>
+                                        <th style="width: 180px;">合同编号（卖方）</th>
+                                        <th style="width: 200px;">框架协议名称</th>
                                         <th style="width: 200px;">货物名称</th>
                                         <th style="width: 220px;">买方</th>
                                         <th style="width: 180px;">卖方</th>
@@ -3115,16 +3176,21 @@
                                         <th style="width: 150px;">签订地点</th>
                                         <th style="width: 120px;">买方联系人</th>
                                         <th style="width: 120px;">买方电话</th>
+                                        <th style="width: 120px;">买方传真</th>
+                                        <th style="width: 120px;">买方email</th>
                                         <th style="width: 120px;">卖方联系人</th>
                                         <th style="width: 120px;">卖方电话</th>
+                                        <th style="width: 120px;">卖方传真</th>
+                                        <th style="width: 120px;">卖方email</th>
                                         <th style="width: 200px;">操作</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr onclick="showBidSubTable('BID-2025001')" style="cursor: pointer;" class="clickable-row">
                                     <td>1</td>
-                                    <td>2025年电力设备采购标包</td>
                                     <td>SGAH-BUYER-2025001</td>
+                                    <td>HNGS-SELLER-2025001</td>
+                                    <td>2025年电力设备采购标包</td>
                                     <td>高压开关柜、配电变压器、电缆</td>
                                     <td>国网安徽省电力有限公司物资分公司</td>
                                     <td>河南光大实业有限公司</td>
@@ -3134,8 +3200,12 @@
                                     <td>河南省郑州市金水区</td>
                                     <td>张经理</td>
                                     <td>0551-65432100</td>
+                                    <td>0551-65432101</td>
+                                    <td>zhang@sgah.com</td>
                                     <td>李总经理</td>
                                     <td>0371-67890123</td>
+                                    <td>0371-67890124</td>
+                                    <td>li@hngs.com</td>
                                     <td>
                                         <a href="#" class="action-link" onclick="event.stopPropagation(); showBidDetail('BID-2025001')">详情</a>
                                         <a href="#" class="action-link" onclick="event.stopPropagation(); editBid('BID-2025001')">编辑</a>
@@ -3144,7 +3214,7 @@
                                                 更多 <span style="color: white;">▼</span>
                                             </button>
                                             <div class="action-dropdown-content">
-                                                <a href="#" class="action-dropdown-item" onclick="event.stopPropagation(); uploadBidFile('BID-2025001')">标包文件上传</a>
+                                                <a href="#" class="action-dropdown-item" onclick="event.stopPropagation(); uploadBidFile('BID-2025001')">框架协议文件上传</a>
                                                 <a href="#" class="action-dropdown-item danger" onclick="event.stopPropagation(); deleteBid('BID-2025001')">删除</a>
                                             </div>
                                         </div>
@@ -3152,8 +3222,9 @@
                                 </tr>
                                 <tr onclick="showBidSubTable('BID-2025002')" style="cursor: pointer;" class="clickable-row">
                                     <td>2</td>
-                                    <td>变压器采购标包</td>
                                     <td>JSSP-BUYER-2025002</td>
+                                    <td>HNGS-SELLER-2025002</td>
+                                    <td>变压器采购标包</td>
                                     <td>S11-M配电变压器、油浸式变压器</td>
                                     <td>江苏食品技术有限公司采购部</td>
                                     <td>河南光大实业有限公司</td>
@@ -3163,8 +3234,12 @@
                                     <td>江苏省南京市建邺区</td>
                                     <td>王采购</td>
                                     <td>025-83456789</td>
+                                    <td>025-83456790</td>
+                                    <td>wang@jssp.com</td>
                                     <td>李总经理</td>
                                     <td>0371-67890123</td>
+                                    <td>0371-67890124</td>
+                                    <td>li@hngs.com</td>
                                     <td>
                                         <a href="#" class="action-link" onclick="event.stopPropagation(); showBidDetail('BID-2025002')">详情</a>
                                         <a href="#" class="action-link" onclick="event.stopPropagation(); editBid('BID-2025002')">编辑</a>
@@ -3173,7 +3248,7 @@
                                                 更多 <span style="color: white;">▼</span>
                                             </button>
                                             <div class="action-dropdown-content">
-                                                <a href="#" class="action-dropdown-item" onclick="event.stopPropagation(); uploadBidFile('BID-2025002')">标包文件上传</a>
+                                                <a href="#" class="action-dropdown-item" onclick="event.stopPropagation(); uploadBidFile('BID-2025002')">框架协议文件上传</a>
                                                 <a href="#" class="action-dropdown-item danger" onclick="event.stopPropagation(); deleteBid('BID-2025002')">删除</a>
                                             </div>
                                         </div>
@@ -3181,8 +3256,9 @@
                                 </tr>
                                 <tr onclick="showBidSubTable('BID-2025003')" style="cursor: pointer;" class="clickable-row">
                                     <td>3</td>
-                                    <td>配电设备采购标包</td>
                                     <td>HNKJ-BUYER-2025003</td>
+                                    <td>HNGS-SELLER-2025003</td>
+                                    <td>配电设备采购标包</td>
                                     <td>配电控制柜、钣金箱体、计量表箱</td>
                                     <td>河南科技集团有限公司采购中心</td>
                                     <td>河南光大实业有限公司</td>
@@ -3192,8 +3268,12 @@
                                     <td>河南省洛阳市涧西区</td>
                                     <td>刘主任</td>
                                     <td>0379-65432100</td>
+                                    <td>0379-65432101</td>
+                                    <td>liu@hnkj.com</td>
                                     <td>李总经理</td>
                                     <td>0371-67890123</td>
+                                    <td>0371-67890124</td>
+                                    <td>li@hngs.com</td>
                                     <td>
                                         <a href="#" class="action-link" onclick="event.stopPropagation(); showBidDetail('BID-2025003')">详情</a>
                                         <a href="#" class="action-link" onclick="event.stopPropagation(); editBid('BID-2025003')">编辑</a>
@@ -3202,7 +3282,7 @@
                                                 更多 <span style="color: white;">▼</span>
                                             </button>
                                             <div class="action-dropdown-content">
-                                                <a href="#" class="action-dropdown-item" onclick="event.stopPropagation(); uploadBidFile('BID-2025003')">标包文件上传</a>
+                                                <a href="#" class="action-dropdown-item" onclick="event.stopPropagation(); uploadBidFile('BID-2025003')">框架协议文件上传</a>
                                                 <a href="#" class="action-dropdown-item danger" onclick="event.stopPropagation(); deleteBid('BID-2025003')">删除</a>
                                             </div>
                                         </div>
@@ -3273,38 +3353,36 @@
                                 <thead>
                                     <tr>
                                         <th style="width: 80px;">序号</th>
+                                        <th style="width: 80px;">订单类型</th>
                                         <th style="width: 120px;">供货单号</th>
                                         <th style="width: 200px;">合同编号（买方）</th>
-                                        <th style="width: 200px;">标包名称</th>
+                                        <th style="width: 200px;">框架协议名称</th>
                                         <th style="width: 180px;">买方</th>
-                                        <th style="width: 80px;">订单类型</th>
                                         <th style="width: 150px;">卖方</th>
-                                        <th style="width: 120px;">签订日期</th>
+                                        <th style="width: 150px;">合同状态</th>
                                         <th style="width: 120px;">分项价(不含税)</th>
                                         <th style="width: 120px;">分项价(含税)</th>
                                         <th style="width: 120px;">RE含税单价</th>
-                                        <th style="width: 150px;">交货时间</th>
-                                        <th style="width: 120px;">创建日期</th>
-                                        <th style="width: 150px;">项目名称</th>
+                                        <th style="width: 120px;">签订日期</th>
+                                        <th style="width: 120px;">创建时间</th>
                                         <th style="width: 200px;">操作</th>
                                     </tr>
                                 </thead>
                             <tbody>
                                 <tr onclick="showContractSubTable('CON-2025001')" style="cursor: pointer;" class="clickable-row">
                                     <td>1</td>
+                                    <td><span class="status-badge status-normal">正常</span></td>
                                     <td><a href="#" class="action-link" onclick="event.stopPropagation(); showContractDetail('CON-2025001')" style="font-weight: 600; color: #1890ff;">SGD-2025001001</a></td>
                                     <td>SGAH-AGREEMENTSTOCK-2025001</td>
                                     <td>2025年电力设备采购标包</td>
                                     <td>国网安徽省电力有限公司</td>
-                                    <td><span class="status-badge status-normal">正常</span></td>
                                     <td>河南光大实业有限公司</td>
-                                    <td>2025-05-15</td>
+                                    <td><span class="contract-status tech-confirming">技术沟通确认技术方案</span></td>
                                     <td>¥1,371,681.42</td>
                                     <td>¥1,580,000.00</td>
                                     <td>¥65,000.00</td>
-                                    <td>2025-07-15</td>
+                                    <td>2025-05-15</td>
                                     <td>2025-05-23</td>
-                                    <td>安徽省电力系统智能化改造项目</td>
                                     <td>
                                         <a href="#" class="action-link" onclick="event.stopPropagation(); showContractDetail('CON-2025001')">详情</a>
                                         <a href="#" class="action-link" onclick="event.stopPropagation(); editContract('CON-2025001')">编辑</a>
@@ -3447,14 +3525,15 @@
                             </div>
                         </div>
                         <div class="table-scroll-container">
-                            <table class="data-table" style="min-width: 2800px; width: 100%;">
+                            <table class="data-table" style="min-width: 3040px; width: 100%;">
                                 <thead>
                                     <tr>
                                         <th style="width: 80px;">序号</th>
                                         <th style="width: 120px;">供货单号</th>
                                         <th style="width: 200px;">合同编号（买方）</th>
-                                        <th style="width: 200px;">标包名称</th>
+                                        <th style="width: 200px;">框架协议名称</th>
                                         <th style="width: 180px;">买方</th>
+                                        <th style="width: 100px;">省份</th>
                                         <th style="width: 80px;">订单类型</th>
                                         <th style="width: 150px;">卖方</th>
                                         <th style="width: 120px;">签订日期</th>
@@ -4897,7 +4976,7 @@
 
     <!-- 合同详情模态框 -->
     <div id="contract-detail-modal" class="modal">
-        <div class="modal-content" style="max-width: 98%; max-height: 49%; overflow-y: auto;">
+        <div class="modal-content" style="max-width: 98%; max-height: 64%; overflow-y: auto;">
             <div class="modal-header">
                 <div class="modal-title">合同详情 - CON-2025001</div>
                 <button class="close-btn" onclick="closeModal('contract-detail-modal')">&times;</button>
@@ -5455,7 +5534,7 @@
                 </div>
                 
                 <div class="detail-section">
-                    <div class="detail-title">标包明细表</div>
+                    <div class="detail-title">框架协议明细表</div>
                     <table class="data-table">
                         <thead>
                             <tr>
@@ -5526,7 +5605,7 @@
                 
                 <div class="detail-section">
                     <div class="detail-title">
-                        标包附件
+                        框架协议附件
                         <button type="button" class="btn btn-primary" style="float: right;" onclick="uploadBidAttachment()">上传附件</button>
                     </div>
                     <table class="data-table">
@@ -5584,7 +5663,7 @@
     <div id="bid-form-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="modal-title" id="bid-form-title">新增标包</div>
+                <div class="modal-title" id="bid-form-title">新增框架协议</div>
                 <button class="close-btn" onclick="closeModal('bid-form-modal')">&times;</button>
             </div>
             <div class="modal-body">
@@ -5593,12 +5672,8 @@
                         <div class="detail-title">基本信息</div>
                         <div class="form-grid">
                             <div>
-                                <label style="display: block; margin-bottom: 5px; font-weight: 600;">标包名称 <span class="required">*</span></label>
+                                <label style="display: block; margin-bottom: 5px; font-weight: 600;">框架协议名称 <span class="required">*</span></label>
                                 <input type="text" class="filter-input" style="width: 100%;" name="bidPackageName" required>
-                            </div>
-                            <div>
-                                <label style="display: block; margin-bottom: 5px; font-weight: 600;">序号</label>
-                                <input type="text" class="filter-input" style="width: 100%;" name="sequenceNo">
                             </div>
                             <div>
                                 <label style="display: block; margin-bottom: 5px; font-weight: 600;">合同编号（买方） <span class="required">*</span></label>
@@ -5669,7 +5744,7 @@
                     
                     <div class="detail-section">
                         <div class="detail-title">
-                            标包明细
+                            框架协议明细
                             <button type="button" class="btn btn-primary" style="float: right;" onclick="addBidDetailRow()">添加明细</button>
                         </div>
                         <div class="detail-table-container">
@@ -5761,6 +5836,25 @@
                                 <label>RE含税单价 <span class="required">*</span></label>
                                 <input type="number" class="filter-input" name="reTaxInclusivePrice" step="0.01" required>
                             </div>
+                            <div class="form-field">
+                                <label>省份</label>
+                                <select class="filter-input" name="province">
+                                    <option value="">请选择省份</option>
+                                    <option value="安徽省">安徽省</option>
+                                    <option value="江苏省">江苏省</option>
+                                    <option value="河南省">河南省</option>
+                                    <option value="山东省">山东省</option>
+                                    <option value="河北省">河北省</option>
+                                    <option value="浙江省">浙江省</option>
+                                    <option value="上海市">上海市</option>
+                                    <option value="北京市">北京市</option>
+                                    <option value="广东省">广东省</option>
+                                    <option value="湖北省">湖北省</option>
+                                    <option value="湖南省">湖南省</option>
+                                    <option value="四川省">四川省</option>
+                                    <option value="其他">其他</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     
@@ -5833,7 +5927,7 @@
 
     <!-- 销售订单详情页面（基于截图重新设计） -->
     <div id="sales-order-detail-modal" class="modal">
-        <div class="modal-content" style="max-width: 98%; max-height: 49%; overflow-y: auto;">
+        <div class="modal-content" style="max-width: 98%; max-height: 64%; overflow-y: auto;">
             <!-- 顶部导航栏 -->
             <div style="background: #f8f9fa; border-bottom: 1px solid #dee2e6; padding: 15px 20px; display: flex; align-items: center; justify-content: space-between;">
                 <div style="display: flex; align-items: center; gap: 15px;">
@@ -6220,7 +6314,7 @@
                     <div class="detail-section">
                         <div class="detail-title">请录入或确认技术联系人信息</div>
                         
-                        <div class="form-grid">
+                        <div class="form-grid-4">
                         <div class="form-field">
                             <label>联系人名称 <span class="required">*</span></label>
                             <input type="text" class="filter-input" id="tech-contact-name-input" name="contactName" required placeholder="请输入联系人姓名">
@@ -6234,12 +6328,12 @@
                         <div class="form-field">
                             <label>职位</label>
                             <input type="text" class="filter-input" id="tech-contact-position-input" name="contactPosition" placeholder="请输入职位，如：高级工程师、技术主管等">
-                            </div>
-                            
-                            <div class="form-field">
-                                <label>邮箱</label>
-                                <input type="email" class="filter-input" id="tech-contact-email-input" name="contactEmail" placeholder="请输入邮箱地址">
-                            </div>
+                        </div>
+                        
+                        <div class="form-field">
+                            <label>邮箱</label>
+                            <input type="email" class="filter-input" id="tech-contact-email-input" name="contactEmail" placeholder="请输入邮箱地址">
+                        </div>
                         </div>
                         
                         <div class="form-field">
@@ -6251,9 +6345,9 @@
                     <div class="detail-section">
                         <div class="detail-title">
                             <i class="fas fa-tasks" style="margin-right: 8px; color: #667eea;"></i>
-                            车间分配
+                            产品类型
                             <span style="font-size: 12px; color: #6c757d; font-weight: normal; margin-left: 12px;">
-                                为每个产品匹配对应车间和负责人
+                                为每个产品匹配对应类型和负责人
                             </span>
                         </div>
                         <div id="tech-task-container" style="max-height: 400px; overflow-y: auto;">
@@ -6281,29 +6375,31 @@
             </div>
             <div class="modal-body">
                 <form id="survey-form">
-                    <div class="form-field">
-                        <label>关联合同编号 <span class="required">*</span></label>
-                        <select class="filter-input" name="contractNo" required>
-                            <option value="">请选择合同编号</option>
-                            <option value="CON-2025001">CON-2025001 - 2025年电力设备采购合同</option>
-                            <option value="CON-2025002">CON-2025002 - 变压器采购协议</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-field">
-                        <label>订单编号 <span class="required">*</span></label>
-                        <select class="filter-input" name="orderNo" required>
-                            <option value="">请选择订单编号</option>
-                            <option value="XS-2505010">XS-2505010 - 江苏食品技术有限公司</option>
-                            <option value="XS-2505005">XS-2505005 - 豫北食品有限公司</option>
-                            <option value="RE25C0010">RE25C0010 - 国网河南省电力公司物资分公司</option>
-                            <option value="RE25B0574">RE25B0574 - 国网安徽省电力有限公司物资分公司</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-field">
-                        <label>存放位置 <span class="required">*</span></label>
-                        <input type="text" class="filter-input" name="storageLocation" required placeholder="请输入存放位置，如：档案室A区-03层-电力设备专柜">
+                    <div class="form-grid">
+                        <div class="form-field">
+                            <label>关联合同编号 <span class="required">*</span></label>
+                            <select class="filter-input" name="contractNo" required>
+                                <option value="">请选择合同编号</option>
+                                <option value="CON-2025001">CON-2025001 - 2025年电力设备采购合同</option>
+                                <option value="CON-2025002">CON-2025002 - 变压器采购协议</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-field">
+                            <label>订单编号 <span class="required">*</span></label>
+                            <select class="filter-input" name="orderNo" required>
+                                <option value="">请选择订单编号</option>
+                                <option value="XS-2505010">XS-2505010 - 江苏食品技术有限公司</option>
+                                <option value="XS-2505005">XS-2505005 - 豫北食品有限公司</option>
+                                <option value="RE25C0010">RE25C0010 - 国网河南省电力公司物资分公司</option>
+                                <option value="RE25B0574">RE25B0574 - 国网安徽省电力有限公司物资分公司</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-field">
+                            <label>存放位置 <span class="required">*</span></label>
+                            <input type="text" class="filter-input" name="storageLocation" required placeholder="请输入存放位置，如：档案室A区-03层-电力设备专柜">
+                        </div>
                     </div>
                     
                     <div class="form-field">
@@ -6330,7 +6426,7 @@
 
     <!-- 附件预览模态框 -->
     <div id="attachment-preview-modal" class="modal">
-        <div class="modal-content" style="max-width: 90%; max-height: 45%; width: 1440px; height: 350px;">
+        <div class="modal-content" style="max-width: 90%; max-height: 59%; width: 1440px; height: 455px;">
             <div class="modal-header">
                 <div class="modal-title" id="attachment-preview-title">PDF文件预览</div>
                 <button class="close-btn" onclick="closeModal('attachment-preview-modal')">&times;</button>
@@ -6398,11 +6494,11 @@
         </div>
     </div>
 
-    <!-- 标包附件上传模态框 -->
+    <!-- 框架协议附件上传模态框 -->
     <div id="bid-attachment-upload-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="modal-title">上传标包附件</div>
+                <div class="modal-title">上传框架协议附件</div>
                 <button class="close-btn" onclick="closeModal('bid-attachment-upload-modal')">&times;</button>
             </div>
             <div class="modal-body">
@@ -6458,23 +6554,25 @@
             </div>
             <div class="modal-body">
                 <form id="sales-upload-survey-form">
-                    <div class="form-field">
-                        <label>关联合同编号 <span class="required">*</span></label>
-                        <select class="filter-input" name="contractNo" required>
-                            <option value="">请选择合同编号</option>
-                            <option value="CON-2025001">CON-2025001 - 2025年电力设备采购合同</option>
-                            <option value="CON-2025002">CON-2025002 - 变压器采购协议</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-field">
-                        <label>订单编号 <span class="required">*</span></label>
-                        <input type="text" class="filter-input" name="orderNo" required readonly style="background-color: #f9fafb;">
-                    </div>
-                    
-                    <div class="form-field">
-                        <label>存放位置 <span class="required">*</span></label>
-                        <input type="text" class="filter-input" name="storageLocation" required placeholder="请输入存放位置，如：档案室A区-03层-电力设备专柜">
+                    <div class="form-grid">
+                        <div class="form-field">
+                            <label>关联合同编号 <span class="required">*</span></label>
+                            <select class="filter-input" name="contractNo" required>
+                                <option value="">请选择合同编号</option>
+                                <option value="CON-2025001">CON-2025001 - 2025年电力设备采购合同</option>
+                                <option value="CON-2025002">CON-2025002 - 变压器采购协议</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-field">
+                            <label>订单编号 <span class="required">*</span></label>
+                            <input type="text" class="filter-input" name="orderNo" required readonly style="background-color: #f9fafb;">
+                        </div>
+                        
+                        <div class="form-field">
+                            <label>存放位置 <span class="required">*</span></label>
+                            <input type="text" class="filter-input" name="storageLocation" required placeholder="请输入存放位置，如：档案室A区-03层-电力设备专柜">
+                        </div>
                     </div>
                     
                     <div class="form-field">
@@ -6507,29 +6605,31 @@
             </div>
             <div class="modal-body">
                 <form id="contract-upload-survey-form">
-                    <div class="form-field">
-                        <label>关联合同编号 <span class="required">*</span></label>
-                        <select class="filter-input" name="contractNo" required>
-                            <option value="">请选择合同编号</option>
-                            <option value="CON-2025001">CON-2025001 - 2025年电力设备采购合同</option>
-                            <option value="CON-2025002">CON-2025002 - 变压器采购协议</option>
-                            <option value="CON-2025003">CON-2025003 - 配电设备采购合同</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-field">
-                        <label>订单编号 <span class="required">*</span></label>
-                        <select class="filter-input" name="orderNo" required>
-                            <option value="">请选择订单编号</option>
-                            <option value="XS-2505010">XS-2505010</option>
-                            <option value="XS-2505005">XS-2505005</option>
-                            <option value="RE25C0010">RE25C0010</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-field">
-                        <label>存放位置 <span class="required">*</span></label>
-                        <input type="text" class="filter-input" name="storageLocation" required placeholder="请输入存放位置，如：档案室A区-03层-电力设备专柜">
+                    <div class="form-grid">
+                        <div class="form-field">
+                            <label>关联合同编号 <span class="required">*</span></label>
+                            <select class="filter-input" name="contractNo" required>
+                                <option value="">请选择合同编号</option>
+                                <option value="CON-2025001">CON-2025001 - 2025年电力设备采购合同</option>
+                                <option value="CON-2025002">CON-2025002 - 变压器采购协议</option>
+                                <option value="CON-2025003">CON-2025003 - 配电设备采购合同</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-field">
+                            <label>订单编号 <span class="required">*</span></label>
+                            <select class="filter-input" name="orderNo" required>
+                                <option value="">请选择订单编号</option>
+                                <option value="XS-2505010">XS-2505010</option>
+                                <option value="XS-2505005">XS-2505005</option>
+                                <option value="RE25C0010">RE25C0010</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-field">
+                            <label>存放位置 <span class="required">*</span></label>
+                            <input type="text" class="filter-input" name="storageLocation" required placeholder="请输入存放位置，如：档案室A区-03层-电力设备专柜">
+                        </div>
                     </div>
                     
                     <div class="form-field">
@@ -6556,7 +6656,7 @@
 
         <!-- 技术图纸模态框 -->
         <div id="drawing-preview-modal" class="modal" style="display: none;">
-            <div class="modal-content" style="width: 90%; max-width: 1920px; height: 45vh;">
+            <div class="modal-content" style="width: 90%; max-width: 1920px; height: 59vh;">
                 <div class="modal-header">
                     <h3 id="drawing-preview-title" class="modal-title">技术图纸</h3>
                     <span class="close" onclick="closeModal('drawing-preview-modal')">&times;</span>
@@ -6614,14 +6714,16 @@
                 </div>
                 <div class="modal-body">
                     <form id="upload-document-form">
-                        <div class="form-field">
-                            <label>文档名称 <span class="required">*</span></label>
-                            <input type="text" class="filter-input" name="documentName" required placeholder="请输入文档名称">
-                        </div>
-                        
-                        <div class="form-field">
-                            <label>文档描述</label>
-                            <textarea class="filter-input" name="documentDescription" placeholder="请输入文档描述" style="min-height: 60px; resize: vertical;"></textarea>
+                        <div class="form-grid-2">
+                            <div class="form-field">
+                                <label>文档名称 <span class="required">*</span></label>
+                                <input type="text" class="filter-input" name="documentName" required placeholder="请输入文档名称">
+                            </div>
+                            
+                            <div class="form-field">
+                                <label>文档描述</label>
+                                <textarea class="filter-input" name="documentDescription" placeholder="请输入文档描述" style="min-height: 60px; resize: vertical;"></textarea>
+                            </div>
                         </div>
                         
                         <div class="form-field">
@@ -6923,7 +7025,7 @@
             
             // 更新面包屑
             const moduleNames = {
-                'bid': '标包管理',
+                'bid': '框架协议管理',
                 'contract': '合同管理',
                 'unconfirmed-contact': '未确认联系人',
                 'sales': '销售订单',
@@ -6988,7 +7090,7 @@
             // 定期检查并保护侧边栏
             setInterval(protectSidebar, 100);
             
-                    // 默认显示标包管理模块
+                    // 默认显示框架协议管理模块
         showModule('bid');
 
         // 悬浮操作面板相关函数
@@ -7026,7 +7128,7 @@
                     <div class="floating-action-group-title">数据操作</div>
                     <a href="#" class="floating-action-item primary" onclick="showBidForm()">
                         <i class="fas fa-plus"></i>
-                        新增标包
+                        新增框架协议
                     </a>
                     <a href="#" class="floating-action-item" onclick="exportBidData()">
                         <i class="fas fa-download"></i>
@@ -7174,7 +7276,7 @@
                         return;
                     }
                     
-                    // 处理车间分配信息
+                    // 处理产品类型信息
                     contactData.techTasks = [];
                     const taskRows = document.querySelectorAll('#tech-task-table tbody tr');
                     
@@ -7204,7 +7306,7 @@
                     });
                     
                     if (!hasValidTask) {
-                        alert('请至少添加一个完整的车间分配信息！');
+                        alert('请至少添加一个完整的产品类型信息！');
                         return;
                     }
                     
@@ -7221,7 +7323,7 @@
                           `手机号：${contactData.contactPhone}\n` +
                           `职位：${contactData.contactPosition || '未填写'}\n` +
                           `邮箱：${contactData.contactEmail || '未填写'}\n\n` +
-                          `车间分配：\n${taskSummary}`);
+                          `产品类型：\n${taskSummary}`);
                     
                     closeModal('tech-contact-modal');
                 });
@@ -7511,7 +7613,7 @@
             document.getElementById('sales-detail-modal').style.display = 'block';
         }
         
-        // 标包管理相关函数
+                    // 框架协议管理相关函数
         function showBidDetail(bidId) {
             document.getElementById('bid-detail-modal').style.display = 'block';
         }
@@ -7522,7 +7624,7 @@
             const form = document.getElementById('bid-form');
             
             if (bidId) {
-                title.textContent = '编辑标包';
+                title.textContent = '编辑框架协议';
                 // 这里可以填充编辑数据
                 loadBidData(bidId);
             } else {
@@ -7556,7 +7658,7 @@
             document.getElementById('bid-attachment-upload-modal').style.display = 'block';
         }
         
-        // 标包附件上传相关函数
+        // 框架协议附件上传相关函数
         function uploadBidAttachment() {
             document.getElementById('bid-attachment-upload-modal').style.display = 'block';
         }
@@ -7718,7 +7820,7 @@
             return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
         }
         
-        // 标包附件操作函数
+        // 框架协议附件操作函数
         function downloadBidAttachment(filename) {
             alert(`下载文件：${filename}`);
             // 实际项目中会下载文件
@@ -8274,18 +8376,17 @@
             cardElement.innerHTML = `
                 <div class="material-card-header">
                     <div class="material-info">
-                        <div class="material-code">${materialCode}</div>
                         <div class="material-name">${categoryName}</div>
                     </div>
                     <div class="material-card-actions">
                         <button type="button" class="btn" onclick="addTechDepartmentToCard('${materialCode}')">
-                            <i class="fas fa-plus"></i> 增加车间
+                            <i class="fas fa-plus"></i> 增加产品类型
                         </button>
                     </div>
                 </div>
                 <div class="material-card-body">
                     <div class="tech-department-list" id="tech-list-${materialCode}">
-                        <!-- 车间列表 -->
+                        <!-- 产品类型列表 -->
                     </div>
                 </div>
             `;
@@ -8318,7 +8419,7 @@
                                          <select name="techDepartment" required onchange="updateTechLeaderForCard(this, '${materialCode}', '${departmentId}')"
                              data-material-code="${materialCode}"
                              data-category-name="${materialCards[materialCode].categoryName}">
-                         <option value="">请选择车间</option>
+                         <option value="">请选择产品类型</option>
                          <option value="低压柜">低压柜</option>
                          <option value="计量箱">计量箱</option>
                          <option value="钣金">钣金</option>
@@ -8332,7 +8433,7 @@
                     </select>
                 </div>
                 <div class="tech-department-item-actions">
-                    <button type="button" class="btn btn-danger" onclick="removeTechDepartmentFromCard('${materialCode}', '${departmentId}')" title="删除此车间">
+                    <button type="button" class="btn btn-danger" onclick="removeTechDepartmentFromCard('${materialCode}', '${departmentId}')" title="删除此产品类型">
                         删除
                     </button>
                 </div>
@@ -8357,11 +8458,11 @@
             
             // 确保至少保留一个车间
             if (techList.children.length <= 1) {
-                alert('每个产品至少需要分配一个车间');
+                alert('每个产品至少需要分配一个产品类型');
                 return;
             }
             
-            if (confirm('确定要删除这个车间吗？')) {
+            if (confirm('确定要删除这个产品类型吗？')) {
                 departmentItem.remove();
             }
         }
@@ -8622,11 +8723,9 @@
             // 模拟从系统中获取该订单的物资信息（来自子表）
             const orderProductData = {
                 'CON-2025001': [
-                    { materialCode: 'WZ-002', categoryName: '配电变压器', serialNo: 2 }
+                    { materialCode: 'WZ-002', categoryName: '配电箱', serialNo: 2 }
                 ],
                 'CON-2025002': [
-                    { materialCode: 'WZ-003', categoryName: '变压器控制器', serialNo: 1 },
-                    { materialCode: 'WZ-004', categoryName: '变压器油', serialNo: 2 }
                 ],
                 'CON-2025003': [
                     { materialCode: 'WZ-005', categoryName: '配电控制柜', serialNo: 1 },
@@ -8885,7 +8984,7 @@
             const subTableContent = document.getElementById('sub-table-content');
             
             // 设置标题
-            subTableTitle.textContent = `标包明细 - ${bidId}`;
+            subTableTitle.textContent = `框架协议明细 - ${bidId}`;
             
             // 生成子表内容
             const subTableHtml = getBidSubTableData(bidId);
