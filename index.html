@@ -3189,7 +3189,7 @@
                     <div class="filter-section">
                         <div class="filter-row">
                             <input type="text" class="filter-input" placeholder="请输入ECP合同编号">
-                            <input type="text" class="filter-input" placeholder="请输入标包名称">
+                            <input type="text" class="filter-input" placeholder="请输入框架协议名称">
                             <input type="text" class="filter-input" placeholder="请输入买方">
                             <input type="text" class="filter-input" placeholder="请输入卖方">
                             <button class="btn btn-primary">查询</button>
@@ -7733,7 +7733,7 @@
         }
         
         function deleteBid(bidId) {
-            if (confirm('确定要删除这个标包吗？')) {
+            if (confirm('确定要删除这个框架协议吗？')) {
                 alert('删除成功！');
                 // 这里实际项目中应该调用删除API
             }
@@ -11011,34 +11011,34 @@
 
         // 悬浮面板操作函数
         function exportBidData() {
-            alert('导出标包数据功能');
+            alert('导出框架协议数据功能');
             hideFloatingPanel();
         }
 
         function importBidData() {
-            alert('导入标包数据功能');
+            alert('导入框架协议数据功能');
             hideFloatingPanel();
         }
 
         function batchEditBid() {
-            alert('批量编辑标包功能');
+            alert('批量编辑框架协议功能');
             hideFloatingPanel();
         }
 
         function batchDeleteBid() {
-            if (confirm('确定要批量删除选中的标包吗？')) {
-                alert('批量删除标包功能');
+            if (confirm('确定要批量删除选中的框架协议吗？')) {
+                alert('批量删除框架协议功能');
                 hideFloatingPanel();
             }
         }
 
         function showBidReport() {
-            alert('标包数据报表功能');
+            alert('框架协议数据报表功能');
             hideFloatingPanel();
         }
 
         function showBidStatistics() {
-            alert('标包统计分析功能');
+            alert('框架协议统计分析功能');
             hideFloatingPanel();
         }
 
