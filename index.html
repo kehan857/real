@@ -2614,6 +2614,26 @@
         .pagination-jump button:hover {
             background: #f3f4f6;
         }
+
+        .table-input {
+            width: 100%;
+            padding: 4px 6px;
+            border: 1px solid #d9d9d9;
+            border-radius: 4px;
+            font-size: 12px;
+            background: white;
+        }
+
+        .table-input:focus {
+            border-color: #1890ff;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+        }
+
+        .required {
+            color: red;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -3750,69 +3770,90 @@
                             </div>
                         </div>
                         <div class="table-scroll-container" id="order-table-container">
-                            <table class="data-table" style="min-width: 1400px; width: 100%;">
+                            <table class="data-table" style="min-width: 2800px; width: 100%;">
                                 <thead>
                                     <tr>
                                         <th style="width: 60px;">序号</th>
-                                        <th style="width: 80px;">通用标识</th>
-                                        <th style="width: 120px;">订单编号</th>
-                                        <th style="width: 80px;">订单类型</th>
+                                        <th style="width: 80px;">逾期标识</th>
+                                        <th style="width: 80px;">订单类型 <span class="required">*</span></th>
+                                        <th style="width: 150px;">销售订单号 <span class="required">*</span></th>
+                                        <th style="width: 120px;">供货单号 <span class="required">*</span></th>
+                                        <th style="width: 150px;">合同编号（买方） <span class="required">*</span></th>
+                                        <th style="width: 120px;">框架合同质保金 <span class="required">*</span></th>
+                                        <th style="width: 120px;">质保金收款标志 <span class="required">*</span></th>
+                                        <th style="width: 80px;">币别</th>
+                                        <th style="width: 80px;">汇率</th>
+                                        <th style="width: 100px;">销售方式 <span class="required">*</span></th>
+                                        <th style="width: 180px;">买方 <span class="required">*</span></th>
+                                        <th style="width: 150px;">交货地点 <span class="required">*</span></th>
                                         <th style="width: 80px;">部门</th>
-                                        <th style="width: 180px;">客户名称</th>
                                         <th style="width: 80px;">业务员</th>
-                                        <th style="width: 150px;">项目名称</th>
-                                        <th style="width: 120px;">框架协议名称</th>
-                                        <th style="width: 100px;">签订日期</th>
                                         <th style="width: 100px;">技术图纸</th>
                                         <th style="width: 100px;">收货确认单</th>
+                                        <th style="width: 100px;">结算日期 <span class="required">*</span></th>
+                                        <th style="width: 100px;">日期 <span class="required">*</span></th>
                                         <th style="width: 200px;">操作</th>
                                     </tr>
                                 </thead>
                             <tbody>
                                 <tr onclick="showSalesSubTable('RE25000010')" style="cursor: pointer;" class="clickable-row">
                                     <td>1</td>
-                                    <td><span class="status-badge status-pending">逾期</span></td>
-                                    <td><a href="#" class="action-link" onclick="event.stopPropagation(); showSalesOrderDetailPage('RE25000010')">RE25000010</a></td>
+                                    <td><span class="status-badge status-pending">逾期8天</span></td>
                                     <td>销售单据</td>
-                                    <td>市场部</td>
+                                    <td><a href="#" class="action-link" onclick="event.stopPropagation(); showSalesOrderDetailPage('RE25000010')">RE25000010</a></td>
+                                    <td>SO12400057433</td>
+                                    <td>SGAHWZ00HTMM2505173</td>
+                                    <td>50000.00</td>
+                                    <td>已收款</td>
+                                    <td>人民币</td>
+                                    <td>1.0000</td>
+                                    <td>直销</td>
                                     <td>江苏食品技术有限公司</td>
+                                    <td>江苏省南京市建邺区</td>
+                                    <td>市场部</td>
                                     <td>李志明</td>
-                                    <td>江苏饮料项目</td>
-                                    <td>饮料设备标包C</td>
-                                    <td>2025-05-23</td>
                                     <td>
                                         <button class="btn btn-primary" onclick="event.stopPropagation(); showDrawingPreview('RE25000010')" style="padding: 4px 8px; font-size: 12px;">预览</button>
                                     </td>
                                     <td>
                                         <button class="btn btn-primary" onclick="event.stopPropagation(); showReceiptPreview('RE25000010')" style="padding: 4px 8px; font-size: 12px;">预览</button>
                                     </td>
+                                    <td>2025-12-31</td>
+                                    <td>2025-05-23</td>
                                     <td>
                                         <a href="#" class="action-link" onclick="event.stopPropagation(); showSalesDetail('RE25000010')">详情</a>
-                                        <a href="#" class="action-link" onclick="event.stopPropagation();">编辑</a>
+                                        <a href="#" class="action-link" onclick="event.stopPropagation(); showSalesEdit('RE25000010')">编辑</a>
                                         <a href="#" class="action-link" onclick="event.stopPropagation();">删除</a>
                                     </td>
                                 </tr>
 
                                 <tr onclick="showSalesSubTable('RE25000005')" style="cursor: pointer;" class="clickable-row">
                                     <td>2</td>
-                                    <td><span class="status-badge status-pending">逾期</span></td>
-                                    <td><a href="#" class="action-link" onclick="event.stopPropagation(); showSalesOrderDetailPage('RE25000005')">RE25000005</a></td>
+                                    <td><span class="status-badge status-normal">正常</span></td>
                                     <td>销售单据</td>
-                                    <td>市场部</td>
+                                    <td><a href="#" class="action-link" onclick="event.stopPropagation(); showSalesOrderDetailPage('RE25000005')">RE25000005</a></td>
+                                    <td>SO12400057434</td>
+                                    <td>SGAHWZ00HTMM2505174</td>
+                                    <td>80000.00</td>
+                                    <td>未收款</td>
+                                    <td>人民币</td>
+                                    <td>1.0000</td>
+                                    <td>代销</td>
                                     <td>豫北食品有限公司</td>
+                                    <td>河南省郑州市金水区</td>
+                                    <td>市场部</td>
                                     <td>李志明</td>
-                                    <td>食品项目</td>
-                                    <td>食品加工标包D</td>
-                                    <td>2025-05-31</td>
                                     <td>
                                         <button class="btn btn-primary" onclick="event.stopPropagation(); showDrawingPreview('RE25000005')" style="padding: 4px 8px; font-size: 12px;">预览</button>
                                     </td>
                                     <td>
                                         <button class="btn btn-primary" onclick="event.stopPropagation(); showReceiptPreview('RE25000005')" style="padding: 4px 8px; font-size: 12px;">预览</button>
                                     </td>
+                                    <td>2025-12-31</td>
+                                    <td>2025-05-31</td>
                                     <td>
                                         <a href="#" class="action-link" onclick="event.stopPropagation(); showSalesDetail('RE25000005')">详情</a>
-                                        <a href="#" class="action-link" onclick="event.stopPropagation();">编辑</a>
+                                        <a href="#" class="action-link" onclick="event.stopPropagation(); showSalesEdit('RE25000005')">编辑</a>
                                         <a href="#" class="action-link" onclick="event.stopPropagation();">删除</a>
                                     </td>
                                 </tr>
@@ -3820,23 +3861,30 @@
                                 <tr onclick="showSalesSubTable('RE25000003')" style="cursor: pointer;" class="clickable-row">
                                     <td>3</td>
                                     <td><span class="status-badge status-draft">正常</span></td>
-                                    <td><a href="#" class="action-link" onclick="event.stopPropagation(); showSalesOrderDetailPage('RE25000003')">RE25000003</a></td>
                                     <td>销售单据</td>
-                                    <td>市场部</td>
+                                    <td><a href="#" class="action-link" onclick="event.stopPropagation(); showSalesOrderDetailPage('RE25000003')">RE25000003</a></td>
+                                    <td>SO12400057435</td>
+                                    <td>SGAHWZ00HTMM2505175</td>
+                                    <td>120000.00</td>
+                                    <td>部分收款</td>
+                                    <td>人民币</td>
+                                    <td>1.0000</td>
+                                    <td>经销</td>
                                     <td>河南科技集团有限公司</td>
+                                    <td>河南省郑州市高新区</td>
+                                    <td>市场部</td>
                                     <td>张明</td>
-                                    <td>科技设备采购项目</td>
-                                    <td>科技实验标包E</td>
-                                    <td>2025-06-01</td>
                                     <td>
                                         <button class="btn btn-primary" onclick="event.stopPropagation(); showDrawingPreview('RE25000003')" style="padding: 4px 8px; font-size: 12px;">预览</button>
                                     </td>
                                     <td>
                                         <button class="btn btn-primary" onclick="event.stopPropagation(); showReceiptPreview('RE25000003')" style="padding: 4px 8px; font-size: 12px;">预览</button>
                                     </td>
+                                    <td>2025-12-31</td>
+                                    <td>2025-06-01</td>
                                     <td>
                                         <a href="#" class="action-link" onclick="event.stopPropagation(); showSalesDetail('RE25000003')">详情</a>
-                                        <a href="#" class="action-link" onclick="event.stopPropagation();">编辑</a>
+                                        <a href="#" class="action-link" onclick="event.stopPropagation(); showSalesEdit('RE25000003')">编辑</a>
                                         <a href="#" class="action-link" onclick="event.stopPropagation();">删除</a>
                                     </td>
                                 </tr>
@@ -3847,55 +3895,94 @@
 
                         <!-- 按明细查询表格 -->
                         <div class="table-scroll-container" id="detail-table-container" style="display: none;">
-                            <table class="data-table" style="min-width: 2260px; width: 100%;">
+                            <table class="data-table" style="min-width: 3500px; width: 100%;">
                                 <thead>
                                     <tr>
                                         <th style="width: 50px;">
                                             <input type="checkbox" id="select-all-detail" onchange="toggleSelectAllDetail()" style="cursor: pointer;">
                                         </th>
                                         <th style="width: 60px;">序号</th>
-                                        <th style="width: 100px;">执行状态</th>
-                                        <th style="width: 120px;">通期标识</th>
-                                        <th style="width: 120px;">订单编号</th>
-                                        <th style="width: 140px;">客户名称</th>
-                                        <th style="width: 150px;">项目名称</th>
-                                        <th style="width: 180px;">产品信息</th>
-                                        <th style="width: 100px;">订单量</th>
-                                        <th style="width: 100px;">重货日期</th>
+                                        <th style="width: 120px;">产品代码 <span class="required">*</span></th>
+                                        <th style="width: 120px;">条形码 <span class="required">*</span></th>
+                                        <th style="width: 150px;">产品名称 <span class="required">*</span></th>
+                                        <th style="width: 150px;">规格型号 <span class="required">*</span></th>
+                                        <th style="width: 100px;">辅助属性</th>
+                                        <th style="width: 80px;">单位 <span class="required">*</span></th>
+                                        <th style="width: 80px;">数量 <span class="required">*</span></th>
+                                        <th style="width: 80px;">库存数量</th>
+                                        <th style="width: 120px;">价格政策名称</th>
+                                        <th style="width: 100px;">单价</th>
+                                        <th style="width: 100px;">含税单价</th>
+                                        <th style="width: 100px;">金额</th>
+                                        <th style="width: 80px;">税率</th>
+                                        <th style="width: 100px;">单位折扣额</th>
+                                        <th style="width: 100px;">折扣额</th>
+                                        <th style="width: 100px;">实际含税单价</th>
+                                        <th style="width: 100px;">销项税额</th>
+                                        <th style="width: 100px;">价税合计</th>
+                                        <th style="width: 100px;">交货日期 <span class="required">*</span></th>
+                                        <th style="width: 100px;">建议交货日期 <span class="required">*</span></th>
+                                        <th style="width: 150px;">备注</th>
                                         <th style="width: 80px; position: sticky; right: -20px; background: white; z-index: 10;">操作</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td onclick="event.stopPropagation();">
-                                            <input type="checkbox" class="detail-row-checkbox" value="RE25000012" onchange="updateDetailSelection()" style="cursor: pointer;">
+                                            <input type="checkbox" class="detail-row-checkbox" value="RE25000012-001" onchange="updateDetailSelection()" style="cursor: pointer;">
                                         </td>
                                         <td>1</td>
-                                        <td><span class="status-badge status-pending">待执行</span></td>
-                                        <td><span class="status-badge status-overdue">逾期8天</span></td>
-                                        <td><a href="#" class="action-link">RE25000012</a></td>
-                                        <td>豫北食品有限公司</td>
-                                        <td>WL-25050009/白砂糖/袋</td>
-                                        <td>白砂糖设备标包A</td>
-                                        <td>5000袋</td>
-                                        <td>2025-07-02</td>
+                                        <td>P001234</td>
+                                        <td>6901234567890</td>
+                                        <td>电能计量箱</td>
+                                        <td>单相,1P+N+PE,60A</td>
+                                        <td>悬挂式</td>
+                                        <td>只</td>
+                                        <td>19</td>
+                                        <td>50</td>
+                                        <td>标准价格政策</td>
+                                        <td>84.30</td>
+                                        <td>94.80</td>
+                                        <td>1601.66</td>
+                                        <td>13%</td>
+                                        <td>0.00</td>
+                                        <td>0.00</td>
+                                        <td>94.80</td>
+                                        <td>184.51</td>
+                                        <td>1801.20</td>
+                                        <td>2025-08-18</td>
+                                        <td>2025-08-15</td>
+                                        <td>标准产品</td>
                                         <td style="position: sticky; right: -20px; background: white; z-index: 10;">
                                             <a href="#" class="action-link">详情</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td onclick="event.stopPropagation();">
-                                            <input type="checkbox" class="detail-row-checkbox" value="RE25000011" onchange="updateDetailSelection()" style="cursor: pointer;">
+                                            <input type="checkbox" class="detail-row-checkbox" value="RE25000011-001" onchange="updateDetailSelection()" style="cursor: pointer;">
                                         </td>
                                         <td>2</td>
-                                        <td><span class="status-badge status-pending">待执行</span></td>
-                                        <td><span class="status-badge status-overdue">逾期8天</span></td>
-                                        <td><a href="#" class="action-link">RE25000011</a></td>
-                                        <td>河南科技闸门有限公司</td>
-                                        <td>WL-25040003/铝合金/3</td>
-                                        <td>工业设备标包B</td>
-                                        <td>100根</td>
-                                        <td>2025-07-01</td>
+                                        <td>P001235</td>
+                                        <td>6901234567891</td>
+                                        <td>智能控制开关</td>
+                                        <td>双控开关,AC220V,2A</td>
+                                        <td>智能型</td>
+                                        <td>个</td>
+                                        <td>50</td>
+                                        <td>100</td>
+                                        <td>智能设备政策</td>
+                                        <td>125.50</td>
+                                        <td>141.82</td>
+                                        <td>6275.00</td>
+                                        <td>13%</td>
+                                        <td>5.00</td>
+                                        <td>250.00</td>
+                                        <td>136.82</td>
+                                        <td>815.73</td>
+                                        <td>7090.73</td>
+                                        <td>2025-08-20</td>
+                                        <td>2025-08-18</td>
+                                        <td>智能产品</td>
                                         <td style="position: sticky; right: -20px; background: white; z-index: 10;">
                                             <a href="#" class="action-link">详情</a>
                                         </td>
@@ -5492,58 +5579,326 @@
             </div>
             <div class="modal-body">
                 <div class="detail-section">
-                    <div class="detail-title">订单基本信息</div>
+                    <div class="detail-title">销售订单主表信息</div>
                     <table class="data-table">
-                        <tr><td>订单日期</td><td>2025-06-30 16:19:09</td><td>销售单号</td><td>RE25B0574</td></tr>
-                        <tr><td>订单类型</td><td>正常</td><td>订单编号</td><td>4000574336</td></tr>
-                        <tr><td>项目单位</td><td>国网安徽省电力有限公司繁昌县供</td><td>供货单号</td><td>SO12400057433</td></tr>
-                        <tr><td>协议合同</td><td>SGAHWZ00HTMM2505173</td><td>生产车间</td><td>表箱</td></tr>
-                        <tr><td>框架协议名称</td><td>2025年5月中标—安徽PC表箱一国网安徽电力2025年第一次物资协议采购</td><td>买方</td><td>国网安徽省电力有限公司物资分公司</td></tr>
+                        <tr><td>序号</td><td>1</td><td>逾期标识</td><td><span class="status-badge status-pending">逾期8天</span></td></tr>
+                        <tr><td>订单类型 <span class="required">*</span></td><td>销售单据</td><td>销售订单号 <span class="required">*</span></td><td>RE25000010</td></tr>
+                        <tr><td>供货单号 <span class="required">*</span></td><td>SO12400057433</td><td>合同编号（买方） <span class="required">*</span></td><td>SGAHWZ00HTMM2505173</td></tr>
+                        <tr><td>框架合同质保金 <span class="required">*</span></td><td>50000.00</td><td>质保金收款标志 <span class="required">*</span></td><td>已收款</td></tr>
+                        <tr><td>币别</td><td>人民币</td><td>汇率</td><td>1.0000</td></tr>
+                        <tr><td>销售方式 <span class="required">*</span></td><td>直销</td><td>买方 <span class="required">*</span></td><td>江苏食品技术有限公司</td></tr>
+                        <tr><td>交货地点 <span class="required">*</span></td><td>江苏省南京市建邺区</td><td>部门</td><td>市场部</td></tr>
+                        <tr><td>业务员</td><td>李志明</td><td>技术图纸</td><td><button class="btn btn-primary" style="padding: 4px 8px; font-size: 12px;">预览</button></td></tr>
+                        <tr><td>收货确认单</td><td><button class="btn btn-primary" style="padding: 4px 8px; font-size: 12px;">预览</button></td><td>结算日期 <span class="required">*</span></td><td>2025-12-31</td></tr>
+                        <tr><td>日期 <span class="required">*</span></td><td>2025-05-23</td><td></td><td></td></tr>
                     </table>
                 </div>
                 
                 <div class="detail-section">
-                    <div class="detail-title">订单明细</div>
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>货物名称</th>
-                                <th>规格</th>
-                                <th>单位</th>
-                                <th>数量</th>
-                                <th>项目名称</th>
-                                <th>含税单价</th>
-                                <th>含税总额</th>
-                                <th>交货时间</th>
-                                <th>技术ID</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>电能计量箱,单相,1P+N+PE</td>
-                                <td>电能计量箱,单相,1.PC+A-C+ABS,60A,悬挂式</td>
-                                <td>只</td>
-                                <td>19</td>
-                                <td>安徽芜湖繁昌县10kV芜山口#360211上上滁线工程</td>
-                                <td>84.2979</td>
-                                <td>¥1,601.66</td>
-                                <td>25/08/18</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>电能计量箱,单相,2P+N+PE</td>
-                                <td>电能计量箱,单相,2.PC+A-C+ABS,60A,悬挂式</td>
-                                <td>只</td>
-                                <td>27</td>
-                                <td>安徽芜湖繁昌县10kV芜山口#360211上上滁线工程</td>
-                                <td>343.0907</td>
-                                <td>¥9,263.45</td>
-                                <td>25/08/18</td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="detail-title">销售订单子表明细</div>
+                    <div style="overflow-x: auto;">
+                        <table class="data-table" style="min-width: 2000px;">
+                            <thead>
+                                <tr>
+                                    <th>序号</th>
+                                    <th>产品代码 <span class="required">*</span></th>
+                                    <th>条形码 <span class="required">*</span></th>
+                                    <th>产品名称 <span class="required">*</span></th>
+                                    <th>规格型号 <span class="required">*</span></th>
+                                    <th>辅助属性</th>
+                                    <th>单位 <span class="required">*</span></th>
+                                    <th>数量 <span class="required">*</span></th>
+                                    <th>库存数量</th>
+                                    <th>价格政策名称</th>
+                                    <th>单价</th>
+                                    <th>含税单价</th>
+                                    <th>金额</th>
+                                    <th>税率</th>
+                                    <th>单位折扣额</th>
+                                    <th>折扣额</th>
+                                    <th>实际含税单价</th>
+                                    <th>销项税额</th>
+                                    <th>价税合计</th>
+                                    <th>交货日期 <span class="required">*</span></th>
+                                    <th>建议交货日期 <span class="required">*</span></th>
+                                    <th>备注</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>P001234</td>
+                                    <td>6901234567890</td>
+                                    <td>电能计量箱</td>
+                                    <td>单相,1P+N+PE,60A</td>
+                                    <td>悬挂式</td>
+                                    <td>只</td>
+                                    <td>19</td>
+                                    <td>50</td>
+                                    <td>标准价格政策</td>
+                                    <td>84.30</td>
+                                    <td>94.80</td>
+                                    <td>1601.66</td>
+                                    <td>13%</td>
+                                    <td>0.00</td>
+                                    <td>0.00</td>
+                                    <td>94.80</td>
+                                    <td>184.51</td>
+                                    <td>1801.20</td>
+                                    <td>2025-08-18</td>
+                                    <td>2025-08-15</td>
+                                    <td>标准产品</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>P001235</td>
+                                    <td>6901234567891</td>
+                                    <td>智能控制开关</td>
+                                    <td>双控开关,AC220V,2A</td>
+                                    <td>智能型</td>
+                                    <td>个</td>
+                                    <td>50</td>
+                                    <td>100</td>
+                                    <td>智能设备政策</td>
+                                    <td>125.50</td>
+                                    <td>141.82</td>
+                                    <td>6275.00</td>
+                                    <td>13%</td>
+                                    <td>5.00</td>
+                                    <td>250.00</td>
+                                    <td>136.82</td>
+                                    <td>815.73</td>
+                                    <td>7090.73</td>
+                                    <td>2025-08-20</td>
+                                    <td>2025-08-18</td>
+                                    <td>智能产品</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 销售订单编辑模态框 -->
+    <div id="sales-edit-modal" class="modal">
+        <div class="modal-content" style="max-width: 95%; max-height: 90%;">
+            <div class="modal-header">
+                <div class="modal-title" id="sales-edit-title">编辑销售订单</div>
+                <button class="close-btn" onclick="closeModal('sales-edit-modal')">&times;</button>
+            </div>
+            <div class="modal-body" style="overflow-y: auto;">
+                <form id="sales-edit-form">
+                    <!-- 主表信息 -->
+                    <div class="detail-section">
+                        <div class="detail-title">主表信息</div>
+                        <div class="form-grid" style="grid-template-columns: repeat(4, 1fr); gap: 15px;">
+                            <div class="form-field">
+                                <label>序号</label>
+                                <input type="text" class="filter-input" name="序号" readonly value="1">
+                            </div>
+                            <div class="form-field">
+                                <label>逾期标识</label>
+                                <select class="filter-input" name="逾期标识">
+                                    <option value="">请选择</option>
+                                    <option value="正常">正常</option>
+                                    <option value="逾期" selected>逾期</option>
+                                </select>
+                            </div>
+                            <div class="form-field">
+                                <label>订单类型 <span class="required">*</span></label>
+                                <select class="filter-input" name="订单类型" required>
+                                    <option value="">请选择</option>
+                                    <option value="销售单据" selected>销售单据</option>
+                                    <option value="服务单据">服务单据</option>
+                                    <option value="退货单据">退货单据</option>
+                                </select>
+                            </div>
+                            <div class="form-field">
+                                <label>销售订单号 <span class="required">*</span></label>
+                                <input type="text" class="filter-input" name="销售订单号" required value="RE25000010">
+                            </div>
+                            <div class="form-field">
+                                <label>供货单号 <span class="required">*</span></label>
+                                <input type="text" class="filter-input" name="供货单号" required value="SO12400057433">
+                            </div>
+                            <div class="form-field">
+                                <label>合同编号（买方） <span class="required">*</span></label>
+                                <input type="text" class="filter-input" name="合同编号买方" required value="SGAHWZ00HTMM2505173">
+                            </div>
+                            <div class="form-field">
+                                <label>框架合同质保金 <span class="required">*</span></label>
+                                <input type="number" class="filter-input" name="框架合同质保金" required value="50000.00" step="0.01">
+                            </div>
+                            <div class="form-field">
+                                <label>质保金收款标志 <span class="required">*</span></label>
+                                <select class="filter-input" name="质保金收款标志" required>
+                                    <option value="">请选择</option>
+                                    <option value="已收款" selected>已收款</option>
+                                    <option value="未收款">未收款</option>
+                                    <option value="部分收款">部分收款</option>
+                                </select>
+                            </div>
+                            <div class="form-field">
+                                <label>币别</label>
+                                <select class="filter-input" name="币别">
+                                    <option value="">请选择</option>
+                                    <option value="人民币" selected>人民币</option>
+                                    <option value="美元">美元</option>
+                                    <option value="欧元">欧元</option>
+                                </select>
+                            </div>
+                            <div class="form-field">
+                                <label>汇率</label>
+                                <input type="number" class="filter-input" name="汇率" value="1.0000" step="0.0001">
+                            </div>
+                            <div class="form-field">
+                                <label>销售方式 <span class="required">*</span></label>
+                                <select class="filter-input" name="销售方式" required>
+                                    <option value="">请选择</option>
+                                    <option value="直销" selected>直销</option>
+                                    <option value="代销">代销</option>
+                                    <option value="经销">经销</option>
+                                </select>
+                            </div>
+                            <div class="form-field">
+                                <label>买方 <span class="required">*</span></label>
+                                <input type="text" class="filter-input" name="买方" required value="江苏食品技术有限公司">
+                            </div>
+                            <div class="form-field">
+                                <label>交货地点 <span class="required">*</span></label>
+                                <input type="text" class="filter-input" name="交货地点" required value="江苏省南京市建邺区">
+                            </div>
+                            <div class="form-field">
+                                <label>部门</label>
+                                <select class="filter-input" name="部门">
+                                    <option value="">请选择</option>
+                                    <option value="市场部" selected>市场部</option>
+                                    <option value="销售部">销售部</option>
+                                    <option value="客服部">客服部</option>
+                                </select>
+                            </div>
+                            <div class="form-field">
+                                <label>业务员</label>
+                                <input type="text" class="filter-input" name="业务员" value="李志明">
+                            </div>
+                            <div class="form-field">
+                                <label>技术图纸</label>
+                                <input type="file" class="filter-input" name="技术图纸" accept=".pdf,.doc,.docx,.dwg">
+                            </div>
+                            <div class="form-field">
+                                <label>收货确认单</label>
+                                <input type="file" class="filter-input" name="收货确认单" accept=".pdf,.doc,.docx">
+                            </div>
+                            <div class="form-field">
+                                <label>结算日期 <span class="required">*</span></label>
+                                <input type="date" class="filter-input" name="结算日期" required value="2025-12-31">
+                            </div>
+                            <div class="form-field">
+                                <label>日期 <span class="required">*</span></label>
+                                <input type="date" class="filter-input" name="日期" required value="2025-05-23">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 子表明细 -->
+                    <div class="detail-section">
+                        <div class="detail-title">子表明细</div>
+                        <div style="margin-bottom: 15px;">
+                            <button type="button" class="btn btn-primary" onclick="addSalesDetailRow()">添加明细</button>
+                            <button type="button" class="btn btn-secondary" onclick="deleteSalesDetailRow()">删除选中</button>
+                        </div>
+                        <div style="overflow-x: auto;">
+                            <table class="data-table" id="sales-detail-table" style="min-width: 3000px;">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 50px;"><input type="checkbox" id="select-all-details" onchange="toggleSelectAllDetails()"></th>
+                                        <th style="width: 60px;">序号</th>
+                                        <th style="width: 120px;">产品代码 <span class="required">*</span></th>
+                                        <th style="width: 120px;">条形码 <span class="required">*</span></th>
+                                        <th style="width: 150px;">产品名称 <span class="required">*</span></th>
+                                        <th style="width: 150px;">规格型号 <span class="required">*</span></th>
+                                        <th style="width: 100px;">辅助属性</th>
+                                        <th style="width: 80px;">单位 <span class="required">*</span></th>
+                                        <th style="width: 80px;">数量 <span class="required">*</span></th>
+                                        <th style="width: 80px;">库存数量</th>
+                                        <th style="width: 120px;">价格政策名称</th>
+                                        <th style="width: 100px;">单价</th>
+                                        <th style="width: 100px;">含税单价</th>
+                                        <th style="width: 100px;">金额</th>
+                                        <th style="width: 80px;">税率</th>
+                                        <th style="width: 100px;">单位折扣额</th>
+                                        <th style="width: 100px;">折扣额</th>
+                                        <th style="width: 100px;">实际含税单价</th>
+                                        <th style="width: 100px;">销项税额</th>
+                                        <th style="width: 100px;">价税合计</th>
+                                        <th style="width: 120px;">交货日期 <span class="required">*</span></th>
+                                        <th style="width: 120px;">建议交货日期 <span class="required">*</span></th>
+                                        <th style="width: 150px;">备注</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="checkbox" class="detail-checkbox"></td>
+                                        <td>1</td>
+                                        <td><input type="text" class="table-input" value="P001234" required></td>
+                                        <td><input type="text" class="table-input" value="6901234567890" required></td>
+                                        <td><input type="text" class="table-input" value="电能计量箱" required></td>
+                                        <td><input type="text" class="table-input" value="单相,1P+N+PE,60A" required></td>
+                                        <td><input type="text" class="table-input" value="悬挂式"></td>
+                                        <td><input type="text" class="table-input" value="只" required></td>
+                                        <td><input type="number" class="table-input" value="19" required></td>
+                                        <td><input type="number" class="table-input" value="50"></td>
+                                        <td><input type="text" class="table-input" value="标准价格政策"></td>
+                                        <td><input type="number" class="table-input" value="84.30" step="0.01"></td>
+                                        <td><input type="number" class="table-input" value="94.80" step="0.01"></td>
+                                        <td><input type="number" class="table-input" value="1601.66" step="0.01"></td>
+                                        <td><input type="text" class="table-input" value="13%"></td>
+                                        <td><input type="number" class="table-input" value="0.00" step="0.01"></td>
+                                        <td><input type="number" class="table-input" value="0.00" step="0.01"></td>
+                                        <td><input type="number" class="table-input" value="94.80" step="0.01"></td>
+                                        <td><input type="number" class="table-input" value="184.51" step="0.01"></td>
+                                        <td><input type="number" class="table-input" value="1801.20" step="0.01"></td>
+                                        <td><input type="date" class="table-input" value="2025-08-18" required></td>
+                                        <td><input type="date" class="table-input" value="2025-08-15" required></td>
+                                        <td><input type="text" class="table-input" value="标准产品"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" class="detail-checkbox"></td>
+                                        <td>2</td>
+                                        <td><input type="text" class="table-input" value="P001235" required></td>
+                                        <td><input type="text" class="table-input" value="6901234567891" required></td>
+                                        <td><input type="text" class="table-input" value="智能控制开关" required></td>
+                                        <td><input type="text" class="table-input" value="双控开关,AC220V,2A" required></td>
+                                        <td><input type="text" class="table-input" value="智能型"></td>
+                                        <td><input type="text" class="table-input" value="个" required></td>
+                                        <td><input type="number" class="table-input" value="50" required></td>
+                                        <td><input type="number" class="table-input" value="100"></td>
+                                        <td><input type="text" class="table-input" value="智能设备政策"></td>
+                                        <td><input type="number" class="table-input" value="125.50" step="0.01"></td>
+                                        <td><input type="number" class="table-input" value="141.82" step="0.01"></td>
+                                        <td><input type="number" class="table-input" value="6275.00" step="0.01"></td>
+                                        <td><input type="text" class="table-input" value="13%"></td>
+                                        <td><input type="number" class="table-input" value="5.00" step="0.01"></td>
+                                        <td><input type="number" class="table-input" value="250.00" step="0.01"></td>
+                                        <td><input type="number" class="table-input" value="136.82" step="0.01"></td>
+                                        <td><input type="number" class="table-input" value="815.73" step="0.01"></td>
+                                        <td><input type="number" class="table-input" value="7090.73" step="0.01"></td>
+                                        <td><input type="date" class="table-input" value="2025-08-20" required></td>
+                                        <td><input type="date" class="table-input" value="2025-08-18" required></td>
+                                        <td><input type="text" class="table-input" value="智能产品"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 30px;">
+                        <button type="submit" class="btn btn-primary">保存</button>
+                        <button type="button" class="btn btn-secondary" style="margin-left: 10px;" onclick="closeModal('sales-edit-modal')">取消</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -11376,6 +11731,85 @@
             alert('生产计划已成功生成！');
             closeModal('production-plan-modal');
         }
+
+        // 销售订单编辑相关函数
+        function showSalesEdit(orderId) {
+            document.getElementById('sales-edit-title').textContent = `编辑销售订单 - ${orderId}`;
+            showModal('sales-edit-modal');
+        }
+
+        function addSalesDetailRow() {
+            const tbody = document.querySelector('#sales-detail-table tbody');
+            const rowCount = tbody.rows.length + 1;
+            const newRow = tbody.insertRow();
+            
+            newRow.innerHTML = `
+                <td><input type="checkbox" class="detail-checkbox"></td>
+                <td>${rowCount}</td>
+                <td><input type="text" class="table-input" required></td>
+                <td><input type="text" class="table-input" required></td>
+                <td><input type="text" class="table-input" required></td>
+                <td><input type="text" class="table-input" required></td>
+                <td><input type="text" class="table-input"></td>
+                <td><input type="text" class="table-input" required></td>
+                <td><input type="number" class="table-input" required></td>
+                <td><input type="number" class="table-input"></td>
+                <td><input type="text" class="table-input"></td>
+                <td><input type="number" class="table-input" step="0.01"></td>
+                <td><input type="number" class="table-input" step="0.01"></td>
+                <td><input type="number" class="table-input" step="0.01"></td>
+                <td><input type="text" class="table-input"></td>
+                <td><input type="number" class="table-input" step="0.01"></td>
+                <td><input type="number" class="table-input" step="0.01"></td>
+                <td><input type="number" class="table-input" step="0.01"></td>
+                <td><input type="number" class="table-input" step="0.01"></td>
+                <td><input type="number" class="table-input" step="0.01"></td>
+                <td><input type="date" class="table-input" required></td>
+                <td><input type="date" class="table-input" required></td>
+                <td><input type="text" class="table-input"></td>
+            `;
+        }
+
+        function deleteSalesDetailRow() {
+            const checkboxes = document.querySelectorAll('#sales-detail-table .detail-checkbox:checked');
+            if (checkboxes.length === 0) {
+                alert('请选择要删除的明细行');
+                return;
+            }
+            
+            if (confirm(`确定要删除选中的 ${checkboxes.length} 行明细吗？`)) {
+                checkboxes.forEach(checkbox => {
+                    checkbox.closest('tr').remove();
+                });
+                
+                // 重新编号
+                const tbody = document.querySelector('#sales-detail-table tbody');
+                Array.from(tbody.rows).forEach((row, index) => {
+                    row.cells[1].textContent = index + 1;
+                });
+            }
+        }
+
+        function toggleSelectAllDetails() {
+            const selectAll = document.getElementById('select-all-details');
+            const checkboxes = document.querySelectorAll('#sales-detail-table .detail-checkbox');
+            
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = selectAll.checked;
+            });
+        }
+
+        // 销售订单表单提交
+        document.getElementById('sales-edit-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 这里可以添加表单验证和数据提交逻辑
+            const formData = new FormData(this);
+            console.log('销售订单数据：', Object.fromEntries(formData));
+            
+            alert('销售订单保存成功！');
+            closeModal('sales-edit-modal');
+        });
 
     </script>
 </body>
