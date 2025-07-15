@@ -994,11 +994,7 @@
             border: 1px solid #FFD591;
         }
         
-        .contract-status.final-confirming {
-            background-color: #FFF2E8;
-            color: #FA541C;
-            border: 1px solid #FFBB96;
-        }
+
         
         .contract-status.order-generated {
             background-color: #F9F0FF;
@@ -3504,7 +3500,7 @@
                                     <td>配电设备采购标包</td>
                                     <td>河南科技集团有限公司</td>
                                     <td>河南光大实业有限公司</td>
-                                    <td><span class="contract-status final-confirming">计划部终确认</span></td>
+                                    <td><span class="contract-status tech-confirming">技术沟通确认</span></td>
                                     <td>¥849,557.52</td>
                                     <td>¥980,000.00</td>
                                     <td>¥12,800.00</td>
@@ -5557,25 +5553,6 @@
                         <!-- 箭头 -->
                         <div style="color: #d9d9d9; font-size: 20px; font-weight: bold;">→</div>
                         
-                        <!-- 计划最终确认 -->
-                        <div style="min-width: 180px; background: white; border: 1px solid #d9d9d9; border-radius: 8px; overflow: hidden;">
-                            <div style="background: #d9d9d9; color: #666; text-align: center; padding: 10px; font-weight: 600; font-size: 13px;">
-                                计划最终确认
-                            </div>
-                            <div style="padding: 12px;">
-                                <div style="color: #999; margin-bottom: 6px; font-size: 12px;">
-                                    审批时间: 待审批
-                                </div>
-                                <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 6px;">
-                                    <span style="color: #999; font-weight: 600; font-size: 13px;">-</span>
-                                    <span style="background: #f0f0f0; color: #999; padding: 2px 6px; border-radius: 10px; font-size: 10px;">待处理</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- 箭头 -->
-                        <div style="color: #d9d9d9; font-size: 20px; font-weight: bold;">→</div>
-                        
                         <!-- 生成销售订单 -->
                         <div style="min-width: 180px; background: white; border: 1px solid #d9d9d9; border-radius: 8px; overflow: hidden;">
                             <div style="background: #d9d9d9; color: #666; text-align: center; padding: 10px; font-weight: 600; font-size: 13px;">
@@ -5595,141 +5572,7 @@
                 </div>
                 
                 <!-- 业务流程进展 -->
-                <div style="margin-top: 30px;">
-                    <div style="font-weight: 600; margin-bottom: 15px; font-size: 16px;">业务流程进展</div>
-                    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
-                        <div style="display: flex; align-items: center; gap: 15px; overflow-x: auto; padding: 10px 0;">
-                            <!-- 开始 -->
-                            <div style="display: flex; flex-direction: column; align-items: center; min-width: 80px;">
-                                <div onclick="toggleContractProcessDetails('start')" style="width: 40px; height: 40px; border-radius: 50%; background: #52c41a; color: white; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 8px; cursor: pointer;">
-                                    ✓
-                                </div>
-                                <div style="font-size: 12px; font-weight: 600; text-align: center;">开始</div>
-                                <div id="contract-start-details" style="font-size: 10px; color: #6c757d; text-align: center; margin-top: 4px; display: none;">
-                                    创建时间：2025/05/23 09:00:00<br/>
-                                    完成时间：2025/05/23 09:00:00
-                                </div>
-                            </div>
-                           
-                           <!-- 连接线 -->
-                           <div style="flex: 1; height: 3px; background: #52c41a; margin: 0 10px;"></div>
-                           
-                           <!-- 商务部上传合同 -->
-                            <div style="display: flex; flex-direction: column; align-items: center; min-width: 120px;">
-                                <div onclick="toggleContractProcessDetails('business-upload')" style="width: 40px; height: 40px; border-radius: 50%; background: #52c41a; color: white; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 8px; cursor: pointer;">
-                                    ✓
-                                </div>
-                                <div style="font-size: 12px; font-weight: 600; text-align: center; line-height: 1.2;">商务部上传合同</div>
-                                <div style="font-size: 10px; color: #6c757d; text-align: center;">邹丹</div>
-                                <div style="font-size: 10px; color: #52c41a; text-align: center;">完成</div>
-                                <div id="business-upload-details" style="font-size: 10px; color: #6c757d; text-align: center; margin-top: 4px; display: none;">
-                                    创建时间：2025/05/23 10:15:29<br/>
-                                    完成时间：2025/05/23 10:15:29
-                                </div>
-                            </div>
-                           
-                           <!-- 连接线 -->
-                           <div style="flex: 1; height: 3px; background: #52c41a; margin: 0 10px;"></div>
-                           
-                           <!-- 销售确认联系人 -->
-                            <div style="display: flex; flex-direction: column; align-items: center; min-width: 120px;">
-                                <div onclick="toggleContractProcessDetails('sales-confirm')" style="width: 40px; height: 40px; border-radius: 50%; background: #52c41a; color: white; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 8px; cursor: pointer;">
-                                    ✓
-                                </div>
-                                <div style="font-size: 12px; font-weight: 600; text-align: center; line-height: 1.2;">销售确认联系人</div>
-                                <div style="font-size: 10px; color: #6c757d; text-align: center;">黄明</div>
-                                <div style="font-size: 10px; color: #52c41a; text-align: center;">完成</div>
-                                <div id="sales-confirm-details" style="font-size: 10px; color: #6c757d; text-align: center; margin-top: 4px; display: none;">
-                                    创建时间：2025/05/24 14:30:15<br/>
-                                    完成时间：2025/05/24 14:30:15
-                                </div>
-                            </div>
-                           
-                           <!-- 连接线 -->
-                           <div style="flex: 1; height: 3px; background: #1890ff; margin: 0 10px;"></div>
-                           
-                           <!-- 技术沟通确认技术方案 -->
-                            <div style="display: flex; flex-direction: column; align-items: center; min-width: 130px;">
-                                <div onclick="toggleContractProcessDetails('tech-confirm')" style="width: 40px; height: 40px; border-radius: 50%; background: #1890ff; color: white; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 8px; cursor: pointer;">
-                                    ●
-                                </div>
-                                <div style="font-size: 12px; font-weight: 600; text-align: center; line-height: 1.2;">技术沟通确认技术方案</div>
-                                <div style="font-size: 10px; color: #6c757d; text-align: center;">郭洋克</div>
-                                <div style="font-size: 10px; color: #1890ff; text-align: center;">进行中</div>
-                                <div id="tech-confirm-details" style="font-size: 10px; color: #6c757d; text-align: center; margin-top: 4px; display: none;">
-                                    创建时间：2025/05/25 09:00:00<br/>
-                                    待续时长：2 天 5 小时 30 分
-                                </div>
-                            </div>
-                           
-                           <!-- 连接线 -->
-                           <div style="flex: 1; height: 3px; background: #d9d9d9; margin: 0 10px;"></div>
-                           
-                           <!-- 技术图纸受控上传 -->
-                            <div style="display: flex; flex-direction: column; align-items: center; min-width: 120px;">
-                                <div onclick="toggleContractProcessDetails('tech-upload')" style="width: 40px; height: 40px; border-radius: 50%; background: #d9d9d9; color: #666; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 8px; cursor: pointer;">
-                                    ○
-                                </div>
-                                <div style="font-size: 12px; font-weight: 600; text-align: center; line-height: 1.2; color: #999;">技术图纸受控上传</div>
-                                <div style="font-size: 10px; color: #999; text-align: center;">-</div>
-                                <div style="font-size: 10px; color: #999; text-align: center;">待处理</div>
-                                <div id="tech-upload-details" style="font-size: 10px; color: #999; text-align: center; margin-top: 4px; display: none;">
-                                    预计开始时间：待确定<br/>
-                                    等待前置任务完成
-                                </div>
-                            </div>
-                           
-                           <!-- 连接线 -->
-                           <div style="flex: 1; height: 3px; background: #d9d9d9; margin: 0 10px;"></div>
-                           
-                           <!-- 计划最终确认 -->
-                            <div style="display: flex; flex-direction: column; align-items: center; min-width: 100px;">
-                                <div onclick="toggleContractProcessDetails('plan-confirm')" style="width: 40px; height: 40px; border-radius: 50%; background: #d9d9d9; color: #666; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 8px; cursor: pointer;">
-                                    ○
-                                </div>
-                                <div style="font-size: 12px; font-weight: 600; text-align: center; line-height: 1.2; color: #999;">计划最终确认</div>
-                                <div style="font-size: 10px; color: #999; text-align: center;">-</div>
-                                <div style="font-size: 10px; color: #999; text-align: center;">待处理</div>
-                                <div id="plan-confirm-details" style="font-size: 10px; color: #999; text-align: center; margin-top: 4px; display: none;">
-                                    预计开始时间：待确定<br/>
-                                    等待前置任务完成
-                                </div>
-                            </div>
-                           
-                           <!-- 连接线 -->
-                           <div style="flex: 1; height: 3px; background: #d9d9d9; margin: 0 10px;"></div>
-                           
-                           <!-- 生成销售订单 -->
-                            <div style="display: flex; flex-direction: column; align-items: center; min-width: 100px;">
-                                <div onclick="toggleContractProcessDetails('generate-order')" style="width: 40px; height: 40px; border-radius: 50%; background: #d9d9d9; color: #666; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 8px; cursor: pointer;">
-                                    ○
-                                </div>
-                                <div style="font-size: 12px; font-weight: 600; text-align: center; line-height: 1.2; color: #999;">生成销售订单</div>
-                                <div style="font-size: 10px; color: #999; text-align: center;">-</div>
-                                <div style="font-size: 10px; color: #999; text-align: center;">待处理</div>
-                                <div id="generate-order-details" style="font-size: 10px; color: #999; text-align: center; margin-top: 4px; display: none;">
-                                    预计开始时间：待确定<br/>
-                                    等待前置任务完成
-                                </div>
-                            </div>
-                           
-                           <!-- 连接线 -->
-                           <div style="flex: 1; height: 3px; background: #d9d9d9; margin: 0 10px;"></div>
-                           
-                           <!-- 结束 -->
-                           <div style="display: flex; flex-direction: column; align-items: center; min-width: 80px;">
-                               <div onclick="toggleContractProcessDetails('end')" style="width: 40px; height: 40px; border-radius: 50%; background: #d9d9d9; color: #666; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 8px; cursor: pointer;">
-                                   ○
-                               </div>
-                               <div style="font-size: 12px; font-weight: 600; text-align: center; color: #999;">结束</div>
-                               <div id="contract-end-details" style="font-size: 10px; color: #999; text-align: center; margin-top: 4px; display: none;">
-                                   预计完成时间：待确定<br/>
-                                   等待所有任务完成
-                               </div>
-                           </div>
-                        </div>
-                    </div>
-                </div>
+
                 
                 <div class="detail-section" style="margin-top: 30px;">
                     <div class="detail-title">合同明细</div>
