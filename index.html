@@ -468,6 +468,21 @@
             color: white;
         }
         
+        .status-badge.status-normal {
+            background: #52c41a;
+            color: white;
+        }
+        
+        .status-badge.status-overdue {
+            background: #f5222d;
+            color: white;
+        }
+        
+        .status-badge.status-severe-overdue {
+            background: #722ed1;
+            color: white;
+        }
+        
         .action-link {
             color: #1890FF;
             text-decoration: none;
@@ -2003,6 +2018,30 @@
             background: #fff1f0;
             color: #ff4d4f;
             border: 1px solid #ffccc7;
+        }
+
+        .status-badge.status-urgent {
+            background: #fff2e8;
+            color: #fa541c;
+            border: 1px solid #ffbb96;
+        }
+
+        .status-badge.status-warning {
+            background: #fffbe6;
+            color: #faad14;
+            border: 1px solid #ffe58f;
+        }
+        
+        .status-badge.status-normal {
+            background: #f6ffed;
+            color: #52c41a;
+            border: 1px solid #b7eb8f;
+        }
+        
+        .status-badge.status-severe-overdue {
+            background: #f9f0ff;
+            color: #722ed1;
+            border: 1px solid #d3adf7;
         }
 
         .material-card-body {
@@ -3760,28 +3799,30 @@
                             </div>
                         </div>
                         <div class="table-scroll-container" id="order-table-container">
-                            <table class="data-table" style="min-width: 2400px; width: 100%;">
+                            <table class="data-table" style="min-width: 2800px; width: 100%;">
                                 <thead>
                                     <tr>
-                                        <th style="width: 50px;">序号</th>
-                                        <th style="width: 70px;">逾期标识</th>
-                                        <th style="width: 70px;">订单类型 <span class="required">*</span></th>
+                                        <th style="width: 60px;">序号</th>
+                                        <th style="width: 80px;">逾期标识</th>
+                                        <th style="width: 90px;">订单类型 <span class="required">*</span></th>
                                         <th style="width: 130px;">销售订单号 <span class="required">*</span></th>
                                         <th style="width: 130px;">供货单号 <span class="required">*</span></th>
-                                        <th style="width: 130px;">合同编号（买方） <span class="required">*</span></th>
-                                        <th style="width: 100px;">框架合同质保金 <span class="required">*</span></th>
-                                        <th style="width: 100px;">质保金收款标志 <span class="required">*</span></th>
-                                        <th style="width: 60px;">币别</th>
-                                        <th style="width: 60px;">汇率</th>
-                                        <th style="width: 80px;">销售方式 <span class="required">*</span></th>
-                                        <th style="width: 160px;">买方 <span class="required">*</span></th>
-                                        <th style="width: 130px;">交货地点 <span class="required">*</span></th>
-                                        <th style="width: 60px;">部门</th>
-                                        <th style="width: 60px;">业务员</th>
-                                        <th style="width: 80px;">技术图纸</th>
-                                        <th style="width: 80px;">收货确认单</th>
-                                        <th style="width: 80px;">结算日期 <span class="required">*</span></th>
-                                        <th style="width: 80px;">日期 <span class="required">*</span></th>
+                                        <th style="width: 140px;">合同编号（买方） <span class="required">*</span></th>
+                                        <th style="width: 150px;">框架协议名称</th>
+                                        <th style="width: 120px;">框架合同质保金 <span class="required">*</span></th>
+                                        <th style="width: 120px;">质保金收款标志 <span class="required">*</span></th>
+                                        <th style="width: 80px;">币别</th>
+                                        <th style="width: 80px;">汇率</th>
+                                        <th style="width: 100px;">销售方式 <span class="required">*</span></th>
+                                        <th style="width: 180px;">买方 <span class="required">*</span></th>
+                                        <th style="width: 150px;">项目名称</th>
+                                        <th style="width: 150px;">交货地点 <span class="required">*</span></th>
+                                        <th style="width: 80px;">部门</th>
+                                        <th style="width: 80px;">业务员</th>
+                                        <th style="width: 100px;">技术图纸</th>
+                                        <th style="width: 100px;">收货确认单</th>
+                                        <th style="width: 100px;">结算日期 <span class="required">*</span></th>
+                                        <th style="width: 100px;">日期 <span class="required">*</span></th>
                                         <th style="width: 160px;">操作</th>
                                     </tr>
                                 </thead>
@@ -3793,12 +3834,14 @@
                                     <td><a href="#" class="action-link" onclick="event.stopPropagation(); showSalesOrderDetailPage('RE25000010')">RE25000010</a></td>
                                     <td>SO12400057433</td>
                                     <td>SGAHWZ00HTMM2505173</td>
+                                    <td>国网河南省电力公司配网物资框架协议</td>
                                     <td>50000.00</td>
                                     <td>已收款</td>
                                     <td>人民币</td>
                                     <td>1.0000</td>
                                     <td>直销</td>
                                     <td>江苏食品技术有限公司</td>
+                                    <td>智能配电箱生产项目</td>
                                     <td>江苏省南京市建邺区</td>
                                     <td>市场部</td>
                                     <td>李志明</td>
@@ -3820,19 +3863,21 @@
                                 <tr onclick="showSalesSubTable('RE25000005')" style="cursor: pointer;" class="clickable-row">
                                     <td>2</td>
                                     <td><span class="status-badge status-normal">正常</span></td>
-                                    <td>销售单据</td>
+                                    <td>生产订单</td>
                                     <td><a href="#" class="action-link" onclick="event.stopPropagation(); showSalesOrderDetailPage('RE25000005')">RE25000005</a></td>
                                     <td>SO12400057434</td>
                                     <td>SGAHWZ00HTMM2505174</td>
+                                    <td>中央企业物资采购框架协议</td>
                                     <td>80000.00</td>
                                     <td>未收款</td>
-                                    <td>人民币</td>
-                                    <td>1.0000</td>
+                                    <td>美元</td>
+                                    <td>7.2500</td>
                                     <td>代销</td>
                                     <td>豫北食品有限公司</td>
+                                    <td>食品安全设备改造项目</td>
                                     <td>河南省郑州市金水区</td>
-                                    <td>市场部</td>
-                                    <td>李志明</td>
+                                    <td>技术部</td>
+                                    <td>王强</td>
                                     <td>
                                         <button class="btn btn-primary" onclick="event.stopPropagation(); showDrawingPreview('RE25000005')" style="padding: 4px 8px; font-size: 12px;">预览</button>
                                     </td>
@@ -3851,18 +3896,20 @@
                                 <tr onclick="showSalesSubTable('RE25000003')" style="cursor: pointer;" class="clickable-row">
                                     <td>3</td>
                                     <td><span class="status-badge status-draft">正常</span></td>
-                                    <td>销售单据</td>
+                                    <td>采购订单</td>
                                     <td><a href="#" class="action-link" onclick="event.stopPropagation(); showSalesOrderDetailPage('RE25000003')">RE25000003</a></td>
                                     <td>SO12400057435</td>
                                     <td>SGAHWZ00HTMM2505175</td>
+                                    <td>省级电网建设物资框架协议</td>
                                     <td>120000.00</td>
                                     <td>部分收款</td>
-                                    <td>人民币</td>
-                                    <td>1.0000</td>
+                                    <td>欧元</td>
+                                    <td>7.8900</td>
                                     <td>经销</td>
                                     <td>河南科技集团有限公司</td>
+                                    <td>新能源设备研发项目</td>
                                     <td>河南省郑州市高新区</td>
-                                    <td>市场部</td>
+                                    <td>研发部</td>
                                     <td>张明</td>
                                     <td>
                                         <button class="btn btn-primary" onclick="event.stopPropagation(); showDrawingPreview('RE25000003')" style="padding: 4px 8px; font-size: 12px;">预览</button>
@@ -3882,19 +3929,21 @@
                                 <tr onclick="showSalesSubTable('RE25000002')" style="cursor: pointer;" class="clickable-row">
                                     <td>4</td>
                                     <td><span class="status-badge status-completed">已完成</span></td>
-                                    <td>生产订单</td>
+                                    <td>维修订单</td>
                                     <td><a href="#" class="action-link" onclick="event.stopPropagation(); showSalesOrderDetailPage('RE25000002')">RE25000002</a></td>
                                     <td>SO12400057436</td>
                                     <td>SGAHWZ00HTMM2505176</td>
+                                    <td>电力设备维护服务框架协议</td>
                                     <td>200000.00</td>
                                     <td>已收款</td>
                                     <td>人民币</td>
                                     <td>1.0000</td>
                                     <td>直销</td>
                                     <td>安徽电力设备有限公司</td>
+                                    <td>电网升级改造项目</td>
                                     <td>安徽省合肥市蜀山区</td>
-                                    <td>技术部</td>
-                                    <td>王强</td>
+                                    <td>工程部</td>
+                                    <td>刘军</td>
                                     <td>
                                         <button class="btn btn-primary" onclick="event.stopPropagation(); showDrawingPreview('RE25000002')" style="padding: 4px 8px; font-size: 12px;">预览</button>
                                     </td>
@@ -3913,18 +3962,20 @@
                                 <tr onclick="showSalesSubTable('RE25000001')" style="cursor: pointer;" class="clickable-row">
                                     <td>5</td>
                                     <td><span class="status-badge status-processing">进行中</span></td>
-                                    <td>销售单据</td>
+                                    <td>租赁订单</td>
                                     <td><a href="#" class="action-link" onclick="event.stopPropagation(); showSalesOrderDetailPage('RE25000001')">RE25000001</a></td>
                                     <td>SO12400057437</td>
                                     <td>SGAHWZ00HTMM2505177</td>
+                                    <td>设备租赁服务框架协议</td>
                                     <td>75000.00</td>
                                     <td>部分收款</td>
-                                    <td>人民币</td>
-                                    <td>1.0000</td>
+                                    <td>港币</td>
+                                    <td>0.9200</td>
                                     <td>代销</td>
                                     <td>江西电力工程有限公司</td>
+                                    <td>变电站设备租赁项目</td>
                                     <td>江西省南昌市东湖区</td>
-                                    <td>市场部</td>
+                                    <td>销售部</td>
                                     <td>陈晓</td>
                                     <td>
                                         <button class="btn btn-primary" onclick="event.stopPropagation(); showDrawingPreview('RE25000001')" style="padding: 4px 8px; font-size: 12px;">预览</button>
@@ -3944,19 +3995,21 @@
                                 <tr onclick="showSalesSubTable('RE24120015')" style="cursor: pointer;" class="clickable-row">
                                     <td>6</td>
                                     <td><span class="status-badge status-overdue">逾期15天</span></td>
-                                    <td>销售单据</td>
+                                    <td>服务订单</td>
                                     <td><a href="#" class="action-link" onclick="event.stopPropagation(); showSalesOrderDetailPage('RE24120015')">RE24120015</a></td>
                                     <td>SO12400057438</td>
                                     <td>SGAHWZ00HTMM2412015</td>
+                                    <td>电网运维服务框架协议</td>
                                     <td>150000.00</td>
                                     <td>未收款</td>
-                                    <td>人民币</td>
-                                    <td>1.0000</td>
-                                    <td>直销</td>
+                                    <td>日元</td>
+                                    <td>0.0480</td>
+                                    <td>分销</td>
                                     <td>湖北电网建设有限公司</td>
+                                    <td>智能电网建设项目</td>
                                     <td>湖北省武汉市江汉区</td>
-                                    <td>工程部</td>
-                                    <td>刘军</td>
+                                    <td>运维部</td>
+                                    <td>李志明</td>
                                     <td>
                                         <button class="btn btn-primary" onclick="event.stopPropagation(); showDrawingPreview('RE24120015')" style="padding: 4px 8px; font-size: 12px;">预览</button>
                                     </td>
@@ -3968,6 +4021,72 @@
                                     <td>
                                         <a href="#" class="action-link" onclick="event.stopPropagation(); showSalesDetail('RE24120015')">详情</a>
                                         <a href="#" class="action-link" onclick="event.stopPropagation(); showSalesEdit('RE24120015')">编辑</a>
+                                        <a href="#" class="action-link" onclick="event.stopPropagation();">删除</a>
+                                    </td>
+                                </tr>
+
+                                <tr onclick="showSalesSubTable('RE25100008')" style="cursor: pointer;" class="clickable-row">
+                                    <td>7</td>
+                                    <td><span class="status-badge status-urgent">紧急</span></td>
+                                    <td>退货订单</td>
+                                    <td><a href="#" class="action-link" onclick="event.stopPropagation(); showSalesOrderDetailPage('RE25100008')">RE25100008</a></td>
+                                    <td>SO12400057439</td>
+                                    <td>SGAHWZ00HTMM2510008</td>
+                                    <td>设备质量保证框架协议</td>
+                                    <td>25000.00</td>
+                                    <td>预收款</td>
+                                    <td>英镑</td>
+                                    <td>8.9500</td>
+                                    <td>联销</td>
+                                    <td>广东南方电网股份有限公司</td>
+                                    <td>设备质量检测项目</td>
+                                    <td>广东省广州市天河区</td>
+                                    <td>质控部</td>
+                                    <td>赵敏</td>
+                                    <td>
+                                        <button class="btn btn-primary" onclick="event.stopPropagation(); showDrawingPreview('RE25100008')" style="padding: 4px 8px; font-size: 12px;">预览</button>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-primary" onclick="event.stopPropagation(); showReceiptPreview('RE25100008')" style="padding: 4px 8px; font-size: 12px;">预览</button>
+                                    </td>
+                                    <td>2025-09-30</td>
+                                    <td>2025-10-01</td>
+                                    <td>
+                                        <a href="#" class="action-link" onclick="event.stopPropagation(); showSalesDetail('RE25100008')">详情</a>
+                                        <a href="#" class="action-link" onclick="event.stopPropagation(); showSalesEdit('RE25100008')">编辑</a>
+                                        <a href="#" class="action-link" onclick="event.stopPropagation();">删除</a>
+                                    </td>
+                                </tr>
+
+                                <tr onclick="showSalesSubTable('RE25080012')" style="cursor: pointer;" class="clickable-row">
+                                    <td>8</td>
+                                    <td><span class="status-badge status-warning">预警</span></td>
+                                    <td>改制订单</td>
+                                    <td><a href="#" class="action-link" onclick="event.stopPropagation(); showSalesOrderDetailPage('RE25080012')">RE25080012</a></td>
+                                    <td>SO12400057440</td>
+                                    <td>SGAHWZ00HTMM2508012</td>
+                                    <td>技术改造升级框架协议</td>
+                                    <td>380000.00</td>
+                                    <td>分期收款</td>
+                                    <td>澳元</td>
+                                    <td>4.8200</td>
+                                    <td>总销</td>
+                                    <td>四川省电力设备制造有限公司</td>
+                                    <td>变压器技术改造项目</td>
+                                    <td>四川省成都市武侯区</td>
+                                    <td>制造部</td>
+                                    <td>孙建华</td>
+                                    <td>
+                                        <button class="btn btn-primary" onclick="event.stopPropagation(); showDrawingPreview('RE25080012')" style="padding: 4px 8px; font-size: 12px;">预览</button>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-primary" onclick="event.stopPropagation(); showReceiptPreview('RE25080012')" style="padding: 4px 8px; font-size: 12px;">预览</button>
+                                    </td>
+                                    <td>2025-08-15</td>
+                                    <td>2025-08-01</td>
+                                    <td>
+                                        <a href="#" class="action-link" onclick="event.stopPropagation(); showSalesDetail('RE25080012')">详情</a>
+                                        <a href="#" class="action-link" onclick="event.stopPropagation(); showSalesEdit('RE25080012')">编辑</a>
                                         <a href="#" class="action-link" onclick="event.stopPropagation();">删除</a>
                                     </td>
                                 </tr>
@@ -4213,150 +4332,136 @@
                                     </tr>
                                     <tr>
                                         <td onclick="event.stopPropagation();">
-                                            <input type="checkbox" class="detail-row-checkbox" value="RE25000010" onchange="updateDetailSelection()" style="cursor: pointer;">
-                                        </td>
-                                        <td>3</td>
-                                        <td><span class="status-badge status-processing">执行中</span></td>
-                                        <td><span class="status-badge status-overdue">逾期10天</span></td>
-                                        <td><a href="#" class="action-link">RE25000010</a></td>
-                                        <td>江苏食品技术有限公司</td>
-                                        <td>WL-25050003/乳制品/320ml</td>
-                                        <td>乳制品设备标包C</td>
-                                        <td>5000瓶</td>
-                                        <td>2025-06-30</td>
-                                        <td style="position: sticky; right: -20px; background: white; z-index: 10;">
-                                            <a href="#" class="action-link">详情</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td onclick="event.stopPropagation();">
-                                            <input type="checkbox" class="detail-row-checkbox" value="RE25000009" onchange="updateDetailSelection()" style="cursor: pointer;">
-                                        </td>
-                                        <td>4</td>
-                                        <td><span class="status-badge status-pending">待执行</span></td>
-                                        <td><span class="status-badge status-overdue">逾期49天</span></td>
-                                        <td><a href="#" class="action-link">RE25000009</a></td>
-                                        <td>豫北食品有限公司</td>
-                                        <td>WL-25050009/白砂糖/袋</td>
-                                        <td>白砂糖包装标包D</td>
-                                        <td>1袋</td>
-                                        <td>2025-05-22</td>
-                                        <td style="position: sticky; right: -20px; background: white; z-index: 10;">
-                                            <a href="#" class="action-link">详情</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td onclick="event.stopPropagation();">
-                                            <input type="checkbox" class="detail-row-checkbox" value="RE25000008" onchange="updateDetailSelection()" style="cursor: pointer;">
-                                        </td>
-                                        <td>5</td>
-                                        <td><span class="status-badge status-processing">执行中</span></td>
-                                        <td><span class="status-badge status-overdue">逾期40天</span></td>
-                                        <td><a href="#" class="action-link">RE25000008</a></td>
-                                        <td>豫北食品有限公司</td>
-                                        <td>WL-25050002/功能饮料/500ml</td>
-                                        <td>功能饮料标包E</td>
-                                        <td>8888瓶</td>
-                                        <td>2025-05-31</td>
-                                        <td style="position: sticky; right: -20px; background: white; z-index: 10;">
-                                            <a href="#" class="action-link">详情</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td onclick="event.stopPropagation();">
-                                            <input type="checkbox" class="detail-row-checkbox" value="RE25000007" onchange="updateDetailSelection()" style="cursor: pointer;">
-                                        </td>
-                                        <td>6</td>
-                                        <td><span class="status-badge status-processing">执行中</span></td>
-                                        <td><span class="status-badge status-overdue">逾期42天</span></td>
-                                        <td><a href="#" class="action-link">RE25000007</a></td>
-                                        <td>豫北食品有限公司</td>
-                                        <td>WL-25050002/功能饮料/500ml</td>
-                                        <td>功能饮料加工标包F</td>
-                                        <td>999瓶</td>
-                                        <td>2025-05-29</td>
-                                        <td style="position: sticky; right: -20px; background: white; z-index: 10;">
-                                            <a href="#" class="action-link">详情</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td onclick="event.stopPropagation();">
-                                            <input type="checkbox" class="detail-row-checkbox" value="RE25000006" onchange="updateDetailSelection()" style="cursor: pointer;">
+                                            <input type="checkbox" class="detail-row-checkbox" value="RE25000002-001" onchange="updateDetailSelection()" style="cursor: pointer;">
                                         </td>
                                         <td>7</td>
-                                        <td><span class="status-badge status-processing">执行中</span></td>
-                                        <td><span class="status-badge status-overdue">逾期49天</span></td>
-                                        <td><a href="#" class="action-link">RE25000006</a></td>
-                                        <td>河南科技闸门有限公司</td>
-                                        <td>WL-25050009/白砂糖/袋</td>
-                                        <td>白砂糖输送标包G</td>
-                                        <td>1袋</td>
-                                        <td>2025-05-22</td>
-                                        <td style="position: sticky; right: -20px; background: white; z-index: 10;">
+                                        <td>RE25000002</td>
+                                        <td><span class="status-badge status-completed">已完成</span></td>
+                                        <td><span class="status-badge status-completed">已完成</span></td>
+                                        <td>HWR001240</td>
+                                        <td>6901234567896</td>
+                                        <td>变压器维修组件</td>
+                                        <td>10kV干式变压器维修套件</td>
+                                        <td>维修型</td>
+                                        <td>套</td>
+                                        <td>1</td>
+                                        <td>3</td>
+                                        <td>维修服务政策</td>
+                                        <td>45000.00</td>
+                                        <td>50850.00</td>
+                                        <td>45000.00</td>
+                                        <td>13%</td>
+                                        <td>0.00</td>
+                                        <td>0.00</td>
+                                        <td>50850.00</td>
+                                        <td>5850.00</td>
+                                        <td>50850.00</td>
+                                        <td>2025-07-20</td>
+                                        <td>2025-07-15</td>
+                                        <td>维修服务，需要现场安装</td>
+                                        <td style="position: sticky; right: 0; background: white; z-index: 10;">
                                             <a href="#" class="action-link">详情</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td onclick="event.stopPropagation();">
-                                            <input type="checkbox" class="detail-row-checkbox" value="RE25000005" onchange="updateDetailSelection()" style="cursor: pointer;">
+                                            <input type="checkbox" class="detail-row-checkbox" value="RE25000001-001" onchange="updateDetailSelection()" style="cursor: pointer;">
                                         </td>
                                         <td>8</td>
-                                        <td><span class="status-badge status-processing">执行中</span></td>
-                                        <td><span class="status-badge status-overdue">逾期56天</span></td>
-                                        <td><a href="#" class="action-link">RE25000005</a></td>
-                                        <td>豫北食品有限公司</td>
-                                        <td>WL-25050009/白砂糖/袋</td>
-                                        <td>白砂糖存储标包H</td>
-                                        <td>3袋</td>
-                                        <td>2025-05-15</td>
-                                        <td style="position: sticky; right: -20px; background: white; z-index: 10;">
+                                        <td>RE25000001</td>
+                                        <td><span class="status-badge status-processing">进行中</span></td>
+                                        <td><span class="status-badge status-processing">进行中</span></td>
+                                        <td>RNT001241</td>
+                                        <td>6901234567897</td>
+                                        <td>租赁设备包</td>
+                                        <td>35kV变电设备租赁套装</td>
+                                        <td>租赁型</td>
+                                        <td>套</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>设备租赁政策</td>
+                                        <td>85000.00</td>
+                                        <td>96050.00</td>
+                                        <td>85000.00</td>
+                                        <td>13%</td>
+                                        <td>2000.00</td>
+                                        <td>2000.00</td>
+                                        <td>94050.00</td>
+                                        <td>10950.00</td>
+                                        <td>96050.00</td>
+                                        <td>2025-11-30</td>
+                                        <td>2025-11-25</td>
+                                        <td>租赁设备，按月收费</td>
+                                        <td style="position: sticky; right: 0; background: white; z-index: 10;">
                                             <a href="#" class="action-link">详情</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td onclick="event.stopPropagation();">
-                                            <input type="checkbox" class="detail-row-checkbox" value="RE25000004" onchange="updateDetailSelection()" style="cursor: pointer;">
+                                            <input type="checkbox" class="detail-row-checkbox" value="RE24120015-001" onchange="updateDetailSelection()" style="cursor: pointer;">
                                         </td>
                                         <td>9</td>
-                                        <td><span class="status-badge status-processing">执行中</span></td>
-                                        <td><span class="status-badge status-overdue">逾期51天</span></td>
-                                        <td><a href="#" class="action-link">RE25000004</a></td>
-                                        <td>江苏食品技术有限公司</td>
-                                        <td>WL-25050002/功能饮料/500ml</td>
-                                        <td>功能饮料包装标包I</td>
-                                        <td>1500瓶</td>
-                                        <td>2025-05-20</td>
-                                        <td style="position: sticky; right: -20px; background: white; z-index: 10;">
+                                        <td>RE24120015</td>
+                                        <td><span class="status-badge status-overdue">逾期</span></td>
+                                        <td><span class="status-badge status-overdue">逾期15天</span></td>
+                                        <td>SRV001242</td>
+                                        <td>6901234567898</td>
+                                        <td>电网运维服务包</td>
+                                        <td>智能电网运维服务套装</td>
+                                        <td>服务型</td>
+                                        <td>套</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>运维服务政策</td>
+                                        <td>150000.00</td>
+                                        <td>169500.00</td>
+                                        <td>150000.00</td>
+                                        <td>13%</td>
+                                        <td>0.00</td>
+                                        <td>0.00</td>
+                                        <td>169500.00</td>
+                                        <td>19500.00</td>
+                                        <td>169500.00</td>
+                                        <td>2025-03-15</td>
+                                        <td>2025-03-10</td>
+                                        <td>紧急服务，需要立即响应</td>
+                                        <td style="position: sticky; right: 0; background: white; z-index: 10;">
                                             <a href="#" class="action-link">详情</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td onclick="event.stopPropagation();">
-                                            <input type="checkbox" class="detail-row-checkbox" value="RE25000003" onchange="updateDetailSelection()" style="cursor: pointer;">
+                                            <input type="checkbox" class="detail-row-checkbox" value="RE25100008-001" onchange="updateDetailSelection()" style="cursor: pointer;">
                                         </td>
                                         <td>10</td>
-                                        <td><span class="status-badge status-processing">执行中</span></td>
-                                        <td><span class="status-badge status-overdue">逾期40天</span></td>
-                                        <td><a href="#" class="action-link">RE25000003</a></td>
-                                        <td>江苏食品技术有限公司</td>
-                                        <td>WL-25050003/乳制品/320ml</td>
-                                        <td>乳制品质检标包J</td>
-                                        <td>1000瓶</td>
-                                        <td>2025-05-31</td>
-                                        <td style="position: sticky; right: -20px; background: white; z-index: 10;">
+                                        <td>RE25100008</td>
+                                        <td><span class="status-badge status-urgent">紧急</span></td>
+                                        <td><span class="status-badge status-urgent">紧急</span></td>
+                                        <td>RTN001243</td>
+                                        <td>6901234567899</td>
+                                        <td>设备质量退货包</td>
+                                        <td>配电设备质量问题退货</td>
+                                        <td>退货型</td>
+                                        <td>套</td>
+                                        <td>1</td>
+                                        <td>0</td>
+                                        <td>退货处理政策</td>
+                                        <td>25000.00</td>
+                                        <td>28250.00</td>
+                                        <td>25000.00</td>
+                                        <td>13%</td>
+                                        <td>0.00</td>
+                                        <td>0.00</td>
+                                        <td>28250.00</td>
+                                        <td>3250.00</td>
+                                        <td>28250.00</td>
+                                        <td>2025-10-15</td>
+                                        <td>2025-10-10</td>
+                                        <td>质量问题退货，需要检测</td>
+                                        <td style="position: sticky; right: 0; background: white; z-index: 10;">
                                             <a href="#" class="action-link">详情</a>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td onclick="event.stopPropagation();">
-                                            <input type="checkbox" class="detail-row-checkbox" value="RE25000002" onchange="updateDetailSelection()" style="cursor: pointer;">
-                                        </td>
-                                        <td>11</td>
-                                        <td><span class="status-badge status-processing">执行中</span></td>
-                                        <td><span class="status-badge status-overdue">逾期56天</span></td>
-                                        <td><a href="#" class="action-link">RE25000002</a></td>
-                                        <td>江苏食品技术有限公司</td>
-                                        <td>WL-25050002/功能饮料/500ml</td>
                                         <td>功能饮料检测标包K</td>
                                         <td>1000瓶</td>
                                         <td>2025-05-15</td>
@@ -9769,10 +9874,12 @@
             
             return `
                 <div style="overflow-x: auto;">
-                    <table class="data-table" style="min-width: 2800px; width: 100%; border-collapse: collapse; font-size: 12px;">
+                    <table class="data-table" style="min-width: 3000px; width: 100%; border-collapse: collapse; font-size: 12px;">
                         <thead>
                             <tr style="background: #f8f9fa;">
                                 <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600; width: 60px;">序号</th>
+                                <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600; width: 100px;">执行状态</th>
+                                <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600; width: 100px;">逾期标识</th>
                                 <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600; width: 120px;">产品代码 <span class="required">*</span></th>
                                 <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600; width: 120px;">条形码 <span class="required">*</span></th>
                                 <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600; width: 150px;">产品名称 <span class="required">*</span></th>
@@ -9827,9 +9934,23 @@
                                 const suggestedDeliveryDate = '2025-08-15';
                                 const remark = index % 3 === 0 ? '优先生产' : index % 3 === 1 ? '需要技术确认' : '标准产品';
                                 
+                                // 生成执行状态
+                                const executionStatuses = ['执行中', '待执行', '已执行'];
+                                const statusClasses = ['status-processing', 'status-pending', 'status-completed'];
+                                const executionStatus = executionStatuses[index % executionStatuses.length];
+                                const statusClass = statusClasses[index % statusClasses.length];
+                                
+                                // 生成逾期标识
+                                const overdueStatuses = ['正常', '逾期', '即将逾期', '严重逾期'];
+                                const overdueClasses = ['status-normal', 'status-overdue', 'status-warning', 'status-severe-overdue'];
+                                const overdueStatus = overdueStatuses[index % overdueStatuses.length];
+                                const overdueClass = overdueClasses[index % overdueClasses.length];
+                                
                                 return `
                                 <tr style="border-bottom: 1px solid #e8e8e8;">
                                     <td style="border: 1px solid #e8e8e8; padding: 8px; text-align: center;">${index + 1}</td>
+                                    <td style="border: 1px solid #e8e8e8; padding: 8px; text-align: center;"><span class="status-badge ${statusClass}">${executionStatus}</span></td>
+                                    <td style="border: 1px solid #e8e8e8; padding: 8px; text-align: center;"><span class="status-badge ${overdueClass}">${overdueStatus}</span></td>
                                     <td style="border: 1px solid #e8e8e8; padding: 8px; text-align: center;">${productCode}</td>
                                     <td style="border: 1px solid #e8e8e8; padding: 8px; text-align: center;">${barcode}</td>
                                     <td style="border: 1px solid #e8e8e8; padding: 8px;">${item.goodsName}</td>
