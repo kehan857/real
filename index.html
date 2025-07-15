@@ -3889,62 +3889,335 @@
                                     </td>
                                 </tr>
 
+                                <tr onclick="showSalesSubTable('RE25000002')" style="cursor: pointer;" class="clickable-row">
+                                    <td>4</td>
+                                    <td><span class="status-badge status-completed">已完成</span></td>
+                                    <td>生产订单</td>
+                                    <td><a href="#" class="action-link" onclick="event.stopPropagation(); showSalesOrderDetailPage('RE25000002')">RE25000002</a></td>
+                                    <td>SO12400057436</td>
+                                    <td>SGAHWZ00HTMM2505176</td>
+                                    <td>200000.00</td>
+                                    <td>已收款</td>
+                                    <td>人民币</td>
+                                    <td>1.0000</td>
+                                    <td>直销</td>
+                                    <td>安徽电力设备有限公司</td>
+                                    <td>安徽省合肥市蜀山区</td>
+                                    <td>技术部</td>
+                                    <td>王强</td>
+                                    <td>
+                                        <button class="btn btn-primary" onclick="event.stopPropagation(); showDrawingPreview('RE25000002')" style="padding: 4px 8px; font-size: 12px;">预览</button>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-primary" onclick="event.stopPropagation(); showReceiptPreview('RE25000002')" style="padding: 4px 8px; font-size: 12px;">预览</button>
+                                    </td>
+                                    <td>2025-11-30</td>
+                                    <td>2025-05-15</td>
+                                    <td>
+                                        <a href="#" class="action-link" onclick="event.stopPropagation(); showSalesDetail('RE25000002')">详情</a>
+                                        <a href="#" class="action-link" onclick="event.stopPropagation(); showSalesEdit('RE25000002')">编辑</a>
+                                        <a href="#" class="action-link" onclick="event.stopPropagation();">删除</a>
+                                    </td>
+                                </tr>
+
+                                <tr onclick="showSalesSubTable('RE25000001')" style="cursor: pointer;" class="clickable-row">
+                                    <td>5</td>
+                                    <td><span class="status-badge status-processing">进行中</span></td>
+                                    <td>销售单据</td>
+                                    <td><a href="#" class="action-link" onclick="event.stopPropagation(); showSalesOrderDetailPage('RE25000001')">RE25000001</a></td>
+                                    <td>SO12400057437</td>
+                                    <td>SGAHWZ00HTMM2505177</td>
+                                    <td>75000.00</td>
+                                    <td>部分收款</td>
+                                    <td>人民币</td>
+                                    <td>1.0000</td>
+                                    <td>代销</td>
+                                    <td>江西电力工程有限公司</td>
+                                    <td>江西省南昌市东湖区</td>
+                                    <td>市场部</td>
+                                    <td>陈晓</td>
+                                    <td>
+                                        <button class="btn btn-primary" onclick="event.stopPropagation(); showDrawingPreview('RE25000001')" style="padding: 4px 8px; font-size: 12px;">预览</button>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-primary" onclick="event.stopPropagation(); showReceiptPreview('RE25000001')" style="padding: 4px 8px; font-size: 12px;">预览</button>
+                                    </td>
+                                    <td>2025-10-15</td>
+                                    <td>2025-04-28</td>
+                                    <td>
+                                        <a href="#" class="action-link" onclick="event.stopPropagation(); showSalesDetail('RE25000001')">详情</a>
+                                        <a href="#" class="action-link" onclick="event.stopPropagation(); showSalesEdit('RE25000001')">编辑</a>
+                                        <a href="#" class="action-link" onclick="event.stopPropagation();">删除</a>
+                                    </td>
+                                </tr>
+
+                                <tr onclick="showSalesSubTable('RE24120015')" style="cursor: pointer;" class="clickable-row">
+                                    <td>6</td>
+                                    <td><span class="status-badge status-overdue">逾期15天</span></td>
+                                    <td>销售单据</td>
+                                    <td><a href="#" class="action-link" onclick="event.stopPropagation(); showSalesOrderDetailPage('RE24120015')">RE24120015</a></td>
+                                    <td>SO12400057438</td>
+                                    <td>SGAHWZ00HTMM2412015</td>
+                                    <td>150000.00</td>
+                                    <td>未收款</td>
+                                    <td>人民币</td>
+                                    <td>1.0000</td>
+                                    <td>直销</td>
+                                    <td>湖北电网建设有限公司</td>
+                                    <td>湖北省武汉市江汉区</td>
+                                    <td>工程部</td>
+                                    <td>刘军</td>
+                                    <td>
+                                        <button class="btn btn-primary" onclick="event.stopPropagation(); showDrawingPreview('RE24120015')" style="padding: 4px 8px; font-size: 12px;">预览</button>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-primary" onclick="event.stopPropagation(); showReceiptPreview('RE24120015')" style="padding: 4px 8px; font-size: 12px;">预览</button>
+                                    </td>
+                                    <td>2025-01-31</td>
+                                    <td>2024-12-15</td>
+                                    <td>
+                                        <a href="#" class="action-link" onclick="event.stopPropagation(); showSalesDetail('RE24120015')">详情</a>
+                                        <a href="#" class="action-link" onclick="event.stopPropagation(); showSalesEdit('RE24120015')">编辑</a>
+                                        <a href="#" class="action-link" onclick="event.stopPropagation();">删除</a>
+                                    </td>
+                                </tr>
+
                             </tbody>
                         </table>
                         </div>
 
                         <!-- 按明细查询表格 -->
-                        <div class="table-scroll-container" id="detail-table-container" style="display: none;">
-                            <table class="data-table" style="min-width: 2260px; width: 100%;">
+                        <div class="table-scroll-container" id="detail-table-container" style="display: none; overflow-x: auto;">
+                            <table class="data-table" style="min-width: 3200px; width: 100%;">
                                 <thead>
                                     <tr>
                                         <th style="width: 50px;">
                                             <input type="checkbox" id="select-all-detail" onchange="toggleSelectAllDetail()" style="cursor: pointer;">
                                         </th>
                                         <th style="width: 60px;">序号</th>
+                                        <th style="width: 120px;">销售订单号</th>
                                         <th style="width: 100px;">执行状态</th>
-                                        <th style="width: 120px;">逾期标识</th>
-                                        <th style="width: 120px;">订单编号</th>
-                                        <th style="width: 140px;">客户名称</th>
-                                        <th style="width: 150px;">项目名称</th>
-                                        <th style="width: 180px;">产品信息</th>
-                                        <th style="width: 100px;">订单量</th>
-                                        <th style="width: 100px;">交货日期</th>
-                                        <th style="width: 80px; position: sticky; right: -20px; background: white; z-index: 10;">操作</th>
+                                        <th style="width: 100px;">逾期标识</th>
+                                        <th style="width: 120px;">产品代码 <span class="required">*</span></th>
+                                        <th style="width: 120px;">条形码 <span class="required">*</span></th>
+                                        <th style="width: 150px;">产品名称 <span class="required">*</span></th>
+                                        <th style="width: 150px;">规格型号 <span class="required">*</span></th>
+                                        <th style="width: 100px;">辅助属性</th>
+                                        <th style="width: 80px;">单位 <span class="required">*</span></th>
+                                        <th style="width: 80px;">数量 <span class="required">*</span></th>
+                                        <th style="width: 80px;">库存数量</th>
+                                        <th style="width: 120px;">价格政策名称</th>
+                                        <th style="width: 100px;">单价</th>
+                                        <th style="width: 100px;">含税单价</th>
+                                        <th style="width: 100px;">金额</th>
+                                        <th style="width: 80px;">税率</th>
+                                        <th style="width: 100px;">单位折扣额</th>
+                                        <th style="width: 100px;">折扣额</th>
+                                        <th style="width: 100px;">实际含税单价</th>
+                                        <th style="width: 100px;">销项税额</th>
+                                        <th style="width: 100px;">价税合计</th>
+                                        <th style="width: 120px;">交货日期 <span class="required">*</span></th>
+                                        <th style="width: 120px;">建议交货日期 <span class="required">*</span></th>
+                                        <th style="width: 150px;">备注</th>
+                                        <th style="width: 80px; position: sticky; right: 0; background: white; z-index: 10;">操作</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td onclick="event.stopPropagation();">
-                                            <input type="checkbox" class="detail-row-checkbox" value="RE25000012" onchange="updateDetailSelection()" style="cursor: pointer;">
+                                            <input type="checkbox" class="detail-row-checkbox" value="RE25000010-001" onchange="updateDetailSelection()" style="cursor: pointer;">
                                         </td>
                                         <td>1</td>
-                                        <td><span class="status-badge status-pending">待执行</span></td>
+                                        <td>RE25000010</td>
+                                        <td><span class="status-badge status-processing">生产中</span></td>
                                         <td><span class="status-badge status-overdue">逾期8天</span></td>
-                                        <td><a href="#" class="action-link">RE25000012</a></td>
-                                        <td>豫北食品有限公司</td>
-                                        <td>WL-25050009/白砂糖/袋</td>
-                                        <td>白砂糖设备标包A</td>
-                                        <td>5000袋</td>
-                                        <td>2025-07-02</td>
-                                        <td style="position: sticky; right: -20px; background: white; z-index: 10;">
+                                        <td>EMB001234</td>
+                                        <td>6901234567890</td>
+                                        <td>电能计量箱</td>
+                                        <td>单相,1P+N+PE,60A</td>
+                                        <td>悬挂式</td>
+                                        <td>只</td>
+                                        <td>19</td>
+                                        <td>50</td>
+                                        <td>标准价格政策</td>
+                                        <td>84.30</td>
+                                        <td>94.80</td>
+                                        <td>1601.66</td>
+                                        <td>13%</td>
+                                        <td>0.00</td>
+                                        <td>0.00</td>
+                                        <td>94.80</td>
+                                        <td>184.51</td>
+                                        <td>1801.20</td>
+                                        <td>2025-08-18</td>
+                                        <td>2025-08-15</td>
+                                        <td>标准产品，优先生产</td>
+                                        <td style="position: sticky; right: 0; background: white; z-index: 10;">
                                             <a href="#" class="action-link">详情</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td onclick="event.stopPropagation();">
-                                            <input type="checkbox" class="detail-row-checkbox" value="RE25000011" onchange="updateDetailSelection()" style="cursor: pointer;">
+                                            <input type="checkbox" class="detail-row-checkbox" value="RE25000010-002" onchange="updateDetailSelection()" style="cursor: pointer;">
                                         </td>
                                         <td>2</td>
-                                        <td><span class="status-badge status-pending">待执行</span></td>
+                                        <td>RE25000010</td>
+                                        <td><span class="status-badge status-pending">待生产</span></td>
                                         <td><span class="status-badge status-overdue">逾期8天</span></td>
-                                        <td><a href="#" class="action-link">RE25000011</a></td>
-                                        <td>河南科技闸门有限公司</td>
-                                        <td>WL-25040003/铝合金/3</td>
-                                        <td>工业设备标包B</td>
-                                        <td>100根</td>
-                                        <td>2025-07-01</td>
-                                        <td style="position: sticky; right: -20px; background: white; z-index: 10;">
+                                        <td>SWI001235</td>
+                                        <td>6901234567891</td>
+                                        <td>智能控制开关</td>
+                                        <td>双控开关,AC220V,2A</td>
+                                        <td>智能型</td>
+                                        <td>个</td>
+                                        <td>50</td>
+                                        <td>100</td>
+                                        <td>智能设备政策</td>
+                                        <td>125.50</td>
+                                        <td>141.82</td>
+                                        <td>6275.00</td>
+                                        <td>13%</td>
+                                        <td>5.00</td>
+                                        <td>250.00</td>
+                                        <td>136.82</td>
+                                        <td>815.73</td>
+                                        <td>7090.73</td>
+                                        <td>2025-08-20</td>
+                                        <td>2025-08-18</td>
+                                        <td>智能产品，需要技术确认</td>
+                                        <td style="position: sticky; right: 0; background: white; z-index: 10;">
+                                            <a href="#" class="action-link">详情</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td onclick="event.stopPropagation();">
+                                            <input type="checkbox" class="detail-row-checkbox" value="RE25000005-001" onchange="updateDetailSelection()" style="cursor: pointer;">
+                                        </td>
+                                        <td>3</td>
+                                        <td>RE25000005</td>
+                                        <td><span class="status-badge status-completed">已完成</span></td>
+                                        <td><span class="status-badge status-normal">正常</span></td>
+                                        <td>TSF001236</td>
+                                        <td>6901234567892</td>
+                                        <td>变压器</td>
+                                        <td>10kV/0.4kV,500kVA</td>
+                                        <td>干式</td>
+                                        <td>台</td>
+                                        <td>2</td>
+                                        <td>5</td>
+                                        <td>大型设备政策</td>
+                                        <td>85000.00</td>
+                                        <td>95950.00</td>
+                                        <td>170000.00</td>
+                                        <td>13%</td>
+                                        <td>0.00</td>
+                                        <td>0.00</td>
+                                        <td>95950.00</td>
+                                        <td>19190.00</td>
+                                        <td>191900.00</td>
+                                        <td>2025-09-15</td>
+                                        <td>2025-09-10</td>
+                                        <td>大型设备，需要专车运输</td>
+                                        <td style="position: sticky; right: 0; background: white; z-index: 10;">
+                                            <a href="#" class="action-link">详情</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td onclick="event.stopPropagation();">
+                                            <input type="checkbox" class="detail-row-checkbox" value="RE25000005-002" onchange="updateDetailSelection()" style="cursor: pointer;">
+                                        </td>
+                                        <td>4</td>
+                                        <td>RE25000005</td>
+                                        <td><span class="status-badge status-processing">生产中</span></td>
+                                        <td><span class="status-badge status-normal">正常</span></td>
+                                        <td>CAB001237</td>
+                                        <td>6901234567893</td>
+                                        <td>配电柜</td>
+                                        <td>GGD型,380V,1000A</td>
+                                        <td>低压</td>
+                                        <td>台</td>
+                                        <td>8</td>
+                                        <td>12</td>
+                                        <td>配电设备政策</td>
+                                        <td>12500.00</td>
+                                        <td>14125.00</td>
+                                        <td>100000.00</td>
+                                        <td>13%</td>
+                                        <td>0.00</td>
+                                        <td>0.00</td>
+                                        <td>14125.00</td>
+                                        <td>13000.00</td>
+                                        <td>113000.00</td>
+                                        <td>2025-08-25</td>
+                                        <td>2025-08-20</td>
+                                        <td>配电设备，标准规格</td>
+                                        <td style="position: sticky; right: 0; background: white; z-index: 10;">
+                                            <a href="#" class="action-link">详情</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td onclick="event.stopPropagation();">
+                                            <input type="checkbox" class="detail-row-checkbox" value="RE25000003-001" onchange="updateDetailSelection()" style="cursor: pointer;">
+                                        </td>
+                                        <td>5</td>
+                                        <td>RE25000003</td>
+                                        <td><span class="status-badge status-pending">待审核</span></td>
+                                        <td><span class="status-badge status-normal">正常</span></td>
+                                        <td>MOT001238</td>
+                                        <td>6901234567894</td>
+                                        <td>电动机</td>
+                                        <td>Y2-132M-4,7.5kW</td>
+                                        <td>三相异步</td>
+                                        <td>台</td>
+                                        <td>15</td>
+                                        <td>25</td>
+                                        <td>电机设备政策</td>
+                                        <td>2800.00</td>
+                                        <td>3164.00</td>
+                                        <td>42000.00</td>
+                                        <td>13%</td>
+                                        <td>100.00</td>
+                                        <td>1500.00</td>
+                                        <td>3064.00</td>
+                                        <td>5460.00</td>
+                                        <td>47460.00</td>
+                                        <td>2025-09-30</td>
+                                        <td>2025-09-25</td>
+                                        <td>标准电机，批量生产</td>
+                                        <td style="position: sticky; right: 0; background: white; z-index: 10;">
+                                            <a href="#" class="action-link">详情</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td onclick="event.stopPropagation();">
+                                            <input type="checkbox" class="detail-row-checkbox" value="RE25000003-002" onchange="updateDetailSelection()" style="cursor: pointer;">
+                                        </td>
+                                        <td>6</td>
+                                        <td>RE25000003</td>
+                                        <td><span class="status-badge status-processing">生产中</span></td>
+                                        <td><span class="status-badge status-normal">正常</span></td>
+                                        <td>PNL001239</td>
+                                        <td>6901234567895</td>
+                                        <td>控制面板</td>
+                                        <td>触摸屏,10寸,彩色</td>
+                                        <td>工业级</td>
+                                        <td>套</td>
+                                        <td>3</td>
+                                        <td>8</td>
+                                        <td>智能控制政策</td>
+                                        <td>8500.00</td>
+                                        <td>9605.00</td>
+                                        <td>25500.00</td>
+                                        <td>13%</td>
+                                        <td>0.00</td>
+                                        <td>0.00</td>
+                                        <td>9605.00</td>
+                                        <td>3315.00</td>
+                                        <td>28815.00</td>
+                                        <td>2025-09-20</td>
+                                        <td>2025-09-15</td>
+                                        <td>高端产品，需要专业调试</td>
+                                        <td style="position: sticky; right: 0; background: white; z-index: 10;">
                                             <a href="#" class="action-link">详情</a>
                                         </td>
                                     </tr>
