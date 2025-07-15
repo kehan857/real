@@ -9483,54 +9483,94 @@
             ];
             
             return `
-                <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 12px;">
-                    <thead>
-                        <tr style="background: #f8f9fa;">
-                            <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600;">序号</th>
-                            <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600;">执行状态</th>
-                            <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600;">通期标识</th>
-                            <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600;">产品信息</th>
-                            <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600;">订单量</th>
-                            <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600;">重货日期</th>
-                            <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600;">完成时间</th>
-                            <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600;">单重(KG)</th>
-                            <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600;">总计重量</th>
-                            <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600;">销售内勤</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        ${data.map((item, index) => {
-                            const statusLabels = ['待执行', '执行中', '已完成', '暂停', '逾期'];
-                            const periodLabels = ['正常', '逾期2天', '逾期5天', '逾期10天'];
-                            const salesStaff = ['徐健', '张明', '李华', '王强', '赵丽'];
-                            
-                            const statusClass = index % 2 === 0 ? 'status-pending' : 'status-processing';
-                            const status = statusLabels[index % statusLabels.length];
-                            const period = periodLabels[index % periodLabels.length];
-                            const staff = salesStaff[index % salesStaff.length];
-                            const weight = 50 + (index * 25);
-                            const totalWeight = weight * parseInt(item.quantity);
-                            
-                            return `
-                            <tr style="border-bottom: 1px solid #e8e8e8;">
-                                <td style="border: 1px solid #e8e8e8; padding: 8px; text-align: center;">${index + 1}</td>
-                                <td style="border: 1px solid #e8e8e8; padding: 8px; text-align: center;">
-                                    <span class="status-badge ${statusClass}" style="padding: 2px 6px; border-radius: 4px; font-size: 11px;">${status}</span>
-                                </td>
-                                <td style="border: 1px solid #e8e8e8; padding: 8px; text-align: center;">
-                                    <span class="status-badge ${index % 3 === 0 ? 'status-overdue' : 'status-normal'}" style="padding: 2px 6px; border-radius: 4px; font-size: 11px;">${period}</span>
-                                </td>
-                                <td style="border: 1px solid #e8e8e8; padding: 8px;">${item.goodsName}<br/><small style="color: #666;">${item.spec}</small></td>
-                                <td style="border: 1px solid #e8e8e8; padding: 8px; text-align: center;">${item.quantity}${item.unit}</td>
-                                <td style="border: 1px solid #e8e8e8; padding: 8px; text-align: center;">2025-07-01</td>
-                                <td style="border: 1px solid #e8e8e8; padding: 8px; text-align: center;">${item.deliveryTime}</td>
-                                <td style="border: 1px solid #e8e8e8; padding: 8px; text-align: center;">${weight}</td>
-                                <td style="border: 1px solid #e8e8e8; padding: 8px; text-align: center;">${totalWeight}</td>
-                                <td style="border: 1px solid #e8e8e8; padding: 8px; text-align: center;">${staff}</td>
+                <div style="overflow-x: auto;">
+                    <table class="data-table" style="min-width: 3200px; width: 100%; border-collapse: collapse; font-size: 12px;">
+                        <thead>
+                            <tr style="background: #f8f9fa;">
+                                <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600; width: 60px;">序号</th>
+                                <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600; width: 120px;">产品代码 <span class="required">*</span></th>
+                                <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600; width: 120px;">条形码 <span class="required">*</span></th>
+                                <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600; width: 150px;">产品名称 <span class="required">*</span></th>
+                                <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600; width: 150px;">规格型号 <span class="required">*</span></th>
+                                <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600; width: 100px;">辅助属性</th>
+                                <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600; width: 80px;">单位 <span class="required">*</span></th>
+                                <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600; width: 80px;">数量 <span class="required">*</span></th>
+                                <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600; width: 80px;">库存数量</th>
+                                <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600; width: 120px;">价格政策名称</th>
+                                <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600; width: 100px;">单价</th>
+                                <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600; width: 100px;">含税单价</th>
+                                <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600; width: 100px;">金额</th>
+                                <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600; width: 80px;">税率</th>
+                                <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600; width: 100px;">单位折扣额</th>
+                                <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600; width: 100px;">折扣额</th>
+                                <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600; width: 100px;">实际含税单价</th>
+                                <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600; width: 100px;">销项税额</th>
+                                <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600; width: 100px;">价税合计</th>
+                                <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600; width: 120px;">交货日期 <span class="required">*</span></th>
+                                <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600; width: 120px;">建议交货日期 <span class="required">*</span></th>
+                                <th style="border: 1px solid #d9d9d9; padding: 8px; text-align: center; color: #333; font-weight: 600; width: 150px;">备注</th>
                             </tr>
-                        `}).join('')}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            ${data.map((item, index) => {
+                                // 根据产品生成真实的产品代码和条形码
+                                const productCodes = ['EMB001234', 'SWI001235', 'TSF001236', 'CAB001237', 'MOT001238', 'PNL001239'];
+                                const barcodes = ['6901234567890', '6901234567891', '6901234567892', '6901234567893', '6901234567894', '6901234567895'];
+                                const pricePolices = ['标准价格政策', '智能设备政策', '大型设备政策', '配电设备政策', '电机设备政策', '智能控制政策'];
+                                const attributes = ['悬挂式', '智能型', '干式', '低压', '三相异步', '工业级'];
+                                
+                                const productCode = productCodes[index % productCodes.length];
+                                const barcode = barcodes[index % barcodes.length];
+                                const pricePolicy = pricePolices[index % pricePolices.length];
+                                const attribute = attributes[index % attributes.length];
+                                
+                                // 计算价格相关字段
+                                const unitPriceStr = item.unitPrice.replace(/,/g, '').replace('¥', '');
+                                const unitPrice = parseFloat(unitPriceStr) || 100;
+                                const quantity = parseInt(item.quantity) || 1;
+                                const taxRate = 13; // 13%税率
+                                const unitDiscount = index % 3 === 0 ? 5.00 : 0.00;
+                                const discount = unitDiscount * quantity;
+                                const actualUnitPrice = unitPrice - unitDiscount;
+                                const taxInclusiveUnitPrice = actualUnitPrice * (1 + taxRate / 100);
+                                const amount = actualUnitPrice * quantity;
+                                const taxAmount = amount * taxRate / 100;
+                                const totalWithTax = amount + taxAmount;
+                                const stock = Math.floor(Math.random() * 100) + 50;
+                                
+                                const deliveryDate = '2025-08-18';
+                                const suggestedDeliveryDate = '2025-08-15';
+                                const remark = index % 3 === 0 ? '优先生产' : index % 3 === 1 ? '需要技术确认' : '标准产品';
+                                
+                                return `
+                                <tr style="border-bottom: 1px solid #e8e8e8;">
+                                    <td style="border: 1px solid #e8e8e8; padding: 8px; text-align: center;">${index + 1}</td>
+                                    <td style="border: 1px solid #e8e8e8; padding: 8px; text-align: center;">${productCode}</td>
+                                    <td style="border: 1px solid #e8e8e8; padding: 8px; text-align: center;">${barcode}</td>
+                                    <td style="border: 1px solid #e8e8e8; padding: 8px;">${item.goodsName}</td>
+                                    <td style="border: 1px solid #e8e8e8; padding: 8px;">${item.spec}</td>
+                                    <td style="border: 1px solid #e8e8e8; padding: 8px; text-align: center;">${attribute}</td>
+                                    <td style="border: 1px solid #e8e8e8; padding: 8px; text-align: center;">${item.unit}</td>
+                                    <td style="border: 1px solid #e8e8e8; padding: 8px; text-align: center;">${item.quantity}</td>
+                                    <td style="border: 1px solid #e8e8e8; padding: 8px; text-align: center;">${stock}</td>
+                                    <td style="border: 1px solid #e8e8e8; padding: 8px;">${pricePolicy}</td>
+                                    <td style="border: 1px solid #e8e8e8; padding: 8px; text-align: right;">${unitPrice.toFixed(2)}</td>
+                                    <td style="border: 1px solid #e8e8e8; padding: 8px; text-align: right;">${taxInclusiveUnitPrice.toFixed(2)}</td>
+                                    <td style="border: 1px solid #e8e8e8; padding: 8px; text-align: right;">${amount.toFixed(2)}</td>
+                                    <td style="border: 1px solid #e8e8e8; padding: 8px; text-align: center;">${taxRate}%</td>
+                                    <td style="border: 1px solid #e8e8e8; padding: 8px; text-align: right;">${unitDiscount.toFixed(2)}</td>
+                                    <td style="border: 1px solid #e8e8e8; padding: 8px; text-align: right;">${discount.toFixed(2)}</td>
+                                    <td style="border: 1px solid #e8e8e8; padding: 8px; text-align: right;">${actualUnitPrice.toFixed(2)}</td>
+                                    <td style="border: 1px solid #e8e8e8; padding: 8px; text-align: right;">${taxAmount.toFixed(2)}</td>
+                                    <td style="border: 1px solid #e8e8e8; padding: 8px; text-align: right;">${totalWithTax.toFixed(2)}</td>
+                                    <td style="border: 1px solid #e8e8e8; padding: 8px; text-align: center;">${deliveryDate}</td>
+                                    <td style="border: 1px solid #e8e8e8; padding: 8px; text-align: center;">${suggestedDeliveryDate}</td>
+                                    <td style="border: 1px solid #e8e8e8; padding: 8px;">${remark}</td>
+                                </tr>
+                            `}).join('')}
+                        </tbody>
+                    </table>
+                </div>
             `;
         }
         
